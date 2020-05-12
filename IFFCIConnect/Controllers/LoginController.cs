@@ -1,9 +1,11 @@
-﻿using System;
+﻿using IFFCIConnect.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace IFFCIConnect.Controllers
 {
@@ -71,5 +73,56 @@ namespace IFFCIConnect.Controllers
 
             return Json(message);
         }
+        /// <summary>
+        /// Validate Login for All users
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public ActionResult userLogin(string email, string password)
+        {
+            try
+            {
+                if (email != null && password != null)
+                {
+                    Session["key"] = string.Empty;
+                    Session["key"] = email;
+                    if (IsValid(email, password))
+                    {
+                        //FormsAuthentication.SetAuthCookie(email, user.RememberMe);
+                        return RedirectToAction("dashboard", "seeker");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Login data is incorrect!");
+                    }                    
+                }
+                return View("~/Views/login/Login.cshtml");
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+
+        public bool IsValid(string _username, string _password)
+        {
+            try
+            {
+                var encodepassword = Cryptography.Crypt(_password);
+                var users = (from u in dbContext.Tbl_Seeker_Account
+                             where u.email.Equals(_username) && u.password.Equals(encodepassword)
+                             select u).FirstOrDefault();
+                Session["Name"] = users.Full_Name != null ? users.Full_Name : string.Empty ;
+                if (users != null) { return true; } else { return false; }
+            }
+
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
     }
 }

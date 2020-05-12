@@ -47,14 +47,29 @@
                                 <!-- The user image in the navbar-->
                                 <img src="~/Content/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Naveen Singh Manral</span>
+                                @if (Session["Name"] != null)
+                                {
+                                    <span class="hidden-xs">@Session["Name"]</span>
+                                }
+                                else
+                                {
+                                    <span class="hidden-xs">@string.Empty</span>
+                                }
+
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
                                     <img src="~/Content/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
-                                        Naveen Singh Manral
+                                        @if (Session["Name"] != null)
+                                        {
+                                                @Session["Name"].ToString();
+                                        }
+                                        else
+                                        {
+                                           
+                                        }
                                         <small> @DateTime.Now</small>
                                     </p>
                                 </li>
@@ -92,7 +107,17 @@
                         <img src="~/Content/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Naveen Singh Manral</p>
+                        @if (Session["Name"] != null)
+                        {
+                    <p>
+                        @Session["Name"].ToString()
+                    </p>
+                        }
+                        else
+                        {
+                    
+
+                        }
                         <!-- Status -->
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
