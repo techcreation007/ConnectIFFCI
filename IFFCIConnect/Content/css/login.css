@@ -1,0 +1,36 @@
+@charset 'UTF-8';
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+background: rgb(30,87,153); /* Old browsers */
+background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(32,124,202,1) 43%, rgba(32,124,202,1) 43%, rgba(41,137,216,1) 57%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(32,124,202,1) 43%,rgba(32,124,202,1) 43%,rgba(41,137,216,1) 57%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(32,124,202,1) 43%,rgba(32,124,202,1) 43%,rgba(41,137,216,1) 57%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 */
+}
+.login-box {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background: #fbf9f5;
+    padding: 20px;
+    border: 6px solid #d0cccc;
+    margin-top: 6%;
+    -webkit-box-shadow: 10px 10px 10px 10px #A6A6A6;
+    box-shadow: 3px 3px 10px 3px #696868;
+}
+.login-logo {
+    text-align: center;
+    padding-bottom: 0px;
+    background: white;
+    border: 1px solid #e8e6e6;
+    border-bottom: 3px solid #886b3f;
+    margin-bottom: 20px;
+}
+.login-box .row
+{
+	margin-bottom: 10px;
+}

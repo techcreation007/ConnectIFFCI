@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Job Portal</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/AlertScripts/Alert.css" rel="stylesheet" />
+    <script src="~/Content/AlertScripts/Alert.js"></script>
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=753955744634665";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("IFCCI Job Portal", "Index", "Home", new { Area = "Common" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>*@
+                    @*<li>@Html.ActionLink("BrowseURLs", "Index", new { Controller = "BrowseURL", Area = "Common" })</li>*@
+
+
+                    <li>@Html.ActionLink("Search a Job", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("About Us", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("Contact Us", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    @*<li>@Html.ActionLink("Administrator", "Index", new { Controller = "Home", Area = "Common" })</li>*@
+                    <li>@Html.ActionLink("LOGIN", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("JOB SEEKER", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("EMPLOYER", "Index", new { Controller = "Home", Area = "Common" })</li>
+
+                </ul>
+                @*@if (!User.Identity.IsAuthenticated)
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+
+                        </ul>
+                    }*@
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container body-content">
+        <br /><br />
+        @RenderBody()
+
+        <hr />
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - IFCCI Job Portal </p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
