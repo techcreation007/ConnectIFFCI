@@ -20,12 +20,12 @@
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
             <h3>Welcome</h3>
             <p>Thank you  for signing up our job portal. Once your account is verified ,you can post the current opening at  your organization and  search a job seekers!</p>
-            @*<input type="submit" name="" value="Login" />*@
-            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+            <input type="submit" name="" value="Login" />
+            @*<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link" id="Login-tab" data-toggle="tab" href="#Login" role="tab" aria-controls="Login" aria-selected="false">Login</a>
                 </li>
-            </ul>
+            </ul>*@
                 <br />
         </div>
         <div class="col-md-9 register-right">
@@ -92,8 +92,7 @@
                                 <input type="text" autocomplete="off" maxlength="20" class="date form-control" readonly placeholder="Select the DOB(MM/DD/YYYY) *" value="" id="txtDOB" />
                             </div>
                             <div class="form-group">
-                                @*<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />*@
-                                @*<input type="text" id="" class="form-control" placeholder="Your Current Address *" value="" />*@
+                                
                                 <textarea class="form-control" maxlength="500" id="txtaddress" placeholder="Your Current Address *"></textarea>
                             </div>
                             <div class="form-group">
@@ -112,9 +111,7 @@
                                     </label>
                                 </div>
                             </div>
-                            @*<div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                    </div>*@
+                           
                             <div class="form-group">
                                 <input type="password" id="txtPassword" class="form-control" placeholder="Password *" value="" maxlength="20" />
                             </div>
@@ -125,7 +122,7 @@
 
                         </div>
                         <div class="form-group">
-                            @*<input type="file" class="form-control" placeholder="Upload Resume *" value="" />*@
+                           
                             <div class="btn btn-primary btn-sm float-left">
                                 <span>Upload Resume</span>
                                 <input type="file" id="ResumeFile"><input type="button" id="fileButton" class="btn" value="Upload File" />
@@ -142,39 +139,29 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Full Name *" value="" />
+                                <input type="text" id="txtEmployerFullName" class="form-control" placeholder="Your Full Name *" value="" />
                             </div>
 
-                            @*<div class="form-group">
-
-                        <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
-                    </div>*@
                             <div class="form-group">
-                                <select class="form-control">
+
+                                <input type="text" minlength="8" maxlength="50" name="txtGSTNumber" class="form-control" placeholder="GST Number of the company *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="DDLIndustry">
                                     <option class="hidden" selected disabled>Industry*</option>
                                     <option>IT</option>
                                     <option>Sales </option>
                                     <option>Commercial</option>
                                 </select>
                             </div>
-                            @*<div class="form-group">
-                        <select class="form-control">
-                            <option class="hidden" selected disabled>Nationality*</option>
-                            <option>India</option>
-                            <option>US</option>
-                            <option>UK</option>
-                        </select>
-                    </div>*@
+
                             <div class="form-group">
-                                <input type="text" autocomplete="off" class="form-control" placeholder="Landline Phone *" value="" />
+                                <input type="text" id="txtCompanyLandlinePhone" autocomplete="off" class="form-control" placeholder="Landline Phone *" value="" />
                             </div>
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Address *"></textarea>
-                                @*<input type="" class="form-control" placeholder="Address *" value="" />*@
-                            </div>
+
                             <div class="form-group">
                                 <select class="form-control">
-                                    <option class="hidden" selected disabled>Number of Employees*</option>
+                                    <option class="hidden" selected disabled id="DDLEmployess">Number of Employees*</option>
                                     <option>5-10</option>
                                     <option>10-100 </option>
                                     <option>100-500</option>
@@ -182,96 +169,68 @@
                                     <option>1000-10000</option>
                                 </select>
                             </div>
-                            @*<div class="form-group">
-                        <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                    </div>*@
-
+                            <div class="form-group">
+                                <input type="password" id="txtCompanyPassword" class="form-control" placeholder="Password *" value="" maxlength="20" />
+                            </div>
 
                         </div>
 
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Company Name *" value="" />
+                                <input type="text" id="txtCompanyName" class="form-control" placeholder="Your Company Name *" value="" />
+                            </div>
+                            <div class="form-group">
+
+                                <input type="text" id="txtDesignation" class="form-control" placeholder="Your Designation *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" autocomplete="off" class="form-control" id="txtEmployerEmail" placeholder="Enter Your Email *" value="" maxlength="30" />
                             </div>
                             <div class="form-group">
                                 <select class="form-control">
-                                    <option class="hidden" selected disabled>Organization Type*</option>
+                                    <option class="hidden" selected disabled id="DDLorganization">Organization Type*</option>
                                     <option>Public</option>
                                     <option>Private </option>
                                     <option>Other</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                @*<input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />*@
-                                <input type="text" class="form-control" placeholder="Cell Phone *" value="" />
+
+                                <input type="text" id="txtCompanyCellPhone" class="form-control" placeholder="Cell Phone *" value="" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Company Website *" value="" />
+                                <input type="password" autocomplete="off" class="form-control" id="txtCompanyconfirmPassword" placeholder="Confirm Password *" value="" maxlength="20" />
                             </div>
+                            @*<div class="form-group">
+                                <input type="text" id="txtCompanywebsiteURL" class="form-control" placeholder="Company Website URL *" value="" />
+                            </div>*@
+
 
 
                             @*<div class="form-group">
-                        <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                    </div>*@
-                            @*<div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password *" value="" />
-                    </div>*@
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Company Description *"></textarea>
-                                @*<input type="" class="form-control" placeholder="Address *" value="" />*@
-                            </div>
-                            <div class="form-group">
-                                <div class="btn btn-primary btn-sm float-left">
-                                    <span>Upload Company Logo*</span>
-                                    <input type="file">
-                                </div>
-                                @*<input type="file" class="form-control" placeholder="Upload Resume *" value="" />*@
-                                @*<span style="color:red;">Upload Resume files only in *.doc,*.docx or *.pdf format with maximum size of 6 MB.</span>*@
-                            </div>
-                            <input type="submit" class="btnRegister" value="Register" id="BtnbtnRegisterEmployer" />
+            <textarea class="form-control"  id="txtCompanyDescription" placeholder="Company Description *"></textarea>
+
+        </div>*@
+
+
+
                         </div>
+                        <div class="form-group">
+
+                            <div class="btn btn-primary btn-sm float-left">
+                                <span>Upload Company Logo*</span>
+                                <input type="file" id="CompanyLogo"><input type="button" id="fileButtonCompanyLogo" class="btn" value="Upload Company Logo" />
+                                @Html.Hidden("EmployerCompanyLogoID")
+                            </div>
+                            <span style="color:red; font-size:11px;">Upload Company Logo files only in *.JPEG,*.JPG or *.PNG format with maximum size of 6 MB.</span>
+                        </div>
+                        <input type="submit" class="btnRegister" value="Register" id="BtnbtnRegisterEmployer" style="margin-top:2px;margin-left:508px;" />
                     </div>
                 </div>
 
                 <!--Ligin Tab-->
-                <div class="tab-pane fade show active" id="Login" role="tabpanel" aria-labelledby="Login-tab">
-                   
-                    @*<h3 class="register-heading">Login Here</h3>*@
-                    <div class="row register-form">
-
-                        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                            <form role="form">
-                                <fieldset>
-                                    <h2>Please Sign In</h2>
-                                    <hr class="colorgraph">
-                                    <div class="form-group">
-                                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
-                                    </div>
-                                    <span class="button-checkbox">
-                                        <button type="button" class="btn" data-color="info">Remember Me</button>
-                                        <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-                                        <a href="" class="btn btn-link pull-right">Forgot Password?</a>
-                                    </span>
-                                    <hr class="colorgraph">
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
-                                        </div>
-                                        <div class="col-xs-6 col-sm-6 col-md-6">
-                                            <a href="" class="btn btn-lg btn-primary btn-block">Register</a>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </form>
-                        </div>
-
-                    </div>
-
-                </div>
+               
             </div>
         </div>
     </div>
@@ -635,7 +594,7 @@
             return false;
         }
 
-        
+
 
         var SeekerAccountsDetails = {};
         SeekerAccountsDetails.Full_Name = FullName.trim();
@@ -662,7 +621,184 @@
                 if (result != undefined && result != null) {
 
                     alert(result);
-                    
+
+                }
+                else {
+                    Alert("Invalid Registration !");
+                    //location.reload();
+                }
+            },
+            failure: function (x, y, z) {
+                alert("Failure!");
+            },
+            error: function (a, b, c) {
+
+                alert("Error!");
+            }
+            });
+    }
+
+    function ValidateAndSaveEmployerRegistrationControls() {
+        debugger;
+        
+        var FullName = $('#txtEmployerFullName').val();
+        var GSTNumber = $('#txtGSTNumber').val();
+        
+        var LandlinePhone = $('#txtCompanyLandlinePhone').val();
+        console.log("LandlinePhone: " + LandlinePhone);
+        
+        var Industry = $('#DDLIndustry').val();
+        var CountEmployess = $('#DDLEmployess').val();
+        var Employeremail = $("#txtEmployerEmail").val();
+        var EmployerCompanyPassword = $("#txtCompanyPassword").val();
+        var CompanyName = $("#txtCompanyName").val();
+        var Designtion = $("#txtDesignation").val();
+        var organization = $("#DDLorganization").val();
+        var CompanyconfirmPassword = $("#txtCompanyconfirmPassword").val();
+        var CompanyCellPhone = $("#txtCompanyCellPhone").val();
+        var LogoFileName = $("#CompanyLogo").val();
+       // var regEx = /^(\+\d)*\s*(\(\d{3}\)\s*)*\d{3}(-{0,1}|\s{0,1})\d{2}(-{0,1}|\s{0,1})\d{2}$/;
+        //console.log("Location "+Location);
+        //var Phonefilter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
+        if (FullName == '' | FullName.length<6) {
+            alert('Please enter  your FullName(atleast 6 character)');
+            $('#TxtFullName').css('background-color', 'yellow');
+            $('#TxtFullName').focus();
+            return false;
+        }
+        if (LandlinePhone == '' || LandlinePhone.length<10) {
+            alert('Please enter your valid Landline Phone');
+            $('#txtEmpPhone').css('background-color', 'yellow');
+            $('#TxtFullName').css('background-color', '');
+            $('#txtEmpPhone').focus();
+            return false;
+        }
+        //if (!$.isNumeric(Phone)) {
+        //    debugger;
+        //    alert('Please enter the valid Phone');
+        //    $('#txtEmpPhone').css('background-color', 'yellow');
+        //    $('#txtEmpPhone').focus();
+        //    return false;
+        //}
+        //else if (!Phone.match(/^(\+\d{1,3}[- ]?)?\d{10}$/)) {
+        //    alert('Please enter the Valid Contact No');
+        //    $('#txtEmpPhone').css('background-color', 'yellow');
+        //   // $('#Designation').css('background-color', '');
+        //    $('#txtEmpPhone').focus();
+        //    return false;
+        //}
+        if (CountEmployess == 0 || CountEmployess==null) {
+            alert('Please select Location');
+            $('#ddlLocation').css('background-color', 'yellow');
+            $('#ddlLocation').focus();
+            return false;
+        }
+        if (Industry == 0 || Industry == null) {
+            alert('Please select Nationality');
+            $('#DDLNationality').css('background-color', 'yellow');
+            $('#DDLNationality').focus();
+            return false;
+        }
+        if (Employeremail == '') {
+            alert('Please enter your Email');
+            $('#txtSeekerEmail').css('background-color', 'yellow');
+            $('#txtaddress').css('background-color', '');
+            $('#txtSeekerEmail').focus();
+            return false;
+        }
+        if (IsEmail(Employeremail) == false) {
+            alert('Please enter your Email');
+            $('#txtSeekerEmail').css('background-color', 'yellow');
+            $('#txtaddress').css('background-color', '');
+            $('#txtSeekerEmail').focus();
+            return false;
+        }
+        //if (!validateEmail(email)) {
+        //    alert('Please enter your Email');
+        //    $('#txtSeekerEmail').css('background-color', 'yellow');
+        //    $('#txtaddress').css('background-color', '');
+        //    $('#txtSeekerEmail').focus();
+        //    return false;
+        //}
+        if (CompanyconfirmPassword == '' || CompanyconfirmPassword.length<8) {
+            alert('Please enter confirm 8 character Password');
+            $('#txtconfirmPassword').css('background-color', 'yellow');
+            $('#txtconfirmPassword').focus();
+            return false;
+        }
+        //if (DOB == '') {
+        //    alert('Please enter your DOB');
+        //    $('#txtDOB').css('background-color', 'yellow');
+        //    $('#txtEmpPhone').css('background-color', '');
+        //    $('#txtDOB').focus();
+        //    return false;
+        //}
+        //if (Address == '') {
+        //    alert('Please enter your Address');
+        //    $('#txtaddress').css('background-color', 'yellow');
+        //    $('#txtDOB').css('background-color', '');
+        //    $('#txtaddress').focus();
+        //    return false;
+        //}
+        //if (City == '') {
+        //    alert('Please enter your City');
+        //    $('#txtCity').css('background-color', 'yellow');
+        //    $('#txtCity').focus();
+        //    return false;
+        //}
+        if (EmployerCompanyPassword == '' || EmployerCompanyPassword.length<8) {
+            alert('Please enter your 8 character password');
+            $('#txtPassword').css('background-color', 'yellow');
+            $('#txtPassword').focus();
+            return false;
+        }
+        //if (LogoFileName == '') {
+        //    alert('Please Upload Resume');
+        //    $('#ResumeFile').css('background-color', 'yellow');
+        //    $('#ResumeFile').focus();
+        //    return false;
+        //}
+        //if (Homephone == '') {
+        //    alert('Please Enter the Home Phone');
+        //    $('#txtHomePhone').css('background-color', 'yellow');
+        //    $('#txtHomePhone').focus();
+        //    return false;
+        //}
+        if (EmployerCompanyPassword != CompanyconfirmPassword) {
+            alert("Passwords do not match.");
+            $('#txtPassword').css('background-color', 'yellow');
+            $('#txtconfirmPassword').css('background-color', 'yellow');
+            $('#txtPassword').focus();
+            return false;
+        }
+
+
+
+        var EmployerAccountsDetails = {};
+        EmployerAccountsDetails.Full_Name = FullName.trim();
+        EmployerAccountsDetails.Email = Employeremail.trim();
+        EmployerAccountsDetails.Landline_Phone = LandlinePhone.trim();
+        EmployerAccountsDetails.Industry = $('#DDLIndustry').val();// "INDIA";// Nationality;
+        EmployerAccountsDetails.Org_Type = $('#DDLorganization').val();
+        EmployerAccountsDetails.Contact_Number = CompanyCellPhone.trim();
+        EmployerAccountsDetails.Company_Name = CompanyName.trim();
+        EmployerAccountsDetails.Number_of_Employees = $('#DDLEmployess').val();
+        EmployerAccountsDetails.GST_Number = "ACFDG12345";// GSTNumber.trim();
+        EmployerAccountsDetails.Designation = Designtion.trim();
+        EmployerAccountsDetails.Password = EmployerCompanyPassword.trim();
+        EmployerAccountsDetails.Company_logo = $("#EmployerCompanyLogoID").val();
+        $.ajax({
+                type: "POST",
+                url:'@Url.Action("RegisterEmployerAccount", "Login")',
+            data: '{EmployerAccountsDetails:' + JSON.stringify(EmployerAccountsDetails) + '}',
+                contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+
+                if (result != undefined && result != null) {
+
+                    alert(result);
+
                 }
                 else {
                     Alert("Invalid Registration !");
@@ -767,35 +903,15 @@
     $('#BtnSeekerRegister').click(function () {
 
         ValidateAndSaveSeekerRegistrationControls();
-        @*$.ajax({
-                type: 'post',
-                url: '@Url.Action("RegisterNewUser", "Login")',
-                //contentType: "application/json; charset=utf-8",
-                datatype: 'json',
-                data: { PortalId: Pid, Fname: fname, Lname: lname, DOB: dob, Email: email, Designation: Designation, ContactNo: Mobile_No, Pan_No: Pan_No, Location: Location, FatherName: FatherName, CommAddress: CommAddress },
-               // data: test,
-                success: function (result) {
-
-                    if (result != undefined && result != null) {
-
-                        alert(result.msg);
-                        $('#dialog').dialog('close');
-                        //location.reload();
-                    }
-                    else {
-                        Alert("Invalid Portal Id!");
-                        //location.reload();
-                    }
-                },
-                failure: function (x, y, z) {
-                    alert("Failure!");
-                },
-                error: function (a, b, c) {
-
-                    alert("Error!");
-                }
-            });*@
+       
     });
+    $('#BtnbtnRegisterEmployer').click(function () {
+
+        ValidateAndSaveEmployerRegistrationControls();
+
+    });
+
+    
     $(document).ready(function () {
         $('#txtDOB').datetimepicker({
             dateFormat: 'mm/dd/yy',
