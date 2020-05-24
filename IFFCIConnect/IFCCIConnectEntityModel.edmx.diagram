@@ -12,6 +12,13 @@
         <EntityTypeShape EntityType="IFCCIModel.Tbl_Employer_Account" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_Account" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_User_Type" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_EducationDetails" Width="1.5" PointX="3.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_ExperinceDetails" Width="1.5" PointX="5.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_MyAdditional_Information" Width="1.5" PointX="7.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_Professional_Summary" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsMaster" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsMyAppointments" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsSet" Width="1.5" PointX="9.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -172,6 +172,27 @@
     <Compile Include="Tbl_Seeker_Account.cs">
       <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tbl_Seeker_EducationDetails.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Seeker_ExperinceDetails.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Seeker_MyAdditional_Information.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Seeker_Professional_Summary.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_SkillsMaster.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_SkillsMyAppointments.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_SkillsSet.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tbl_User_Type.cs">
       <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
     </Compile>

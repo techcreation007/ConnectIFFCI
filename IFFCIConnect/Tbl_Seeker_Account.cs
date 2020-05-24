@@ -11,8 +11,7 @@ namespace IFFCIConnect
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Tbl_Seeker_Account
     {
         public int id { get; set; }
@@ -23,7 +22,6 @@ namespace IFFCIConnect
         public string gender { get; set; }
         public bool Is_active { get; set; }
         public string contact_number { get; set; }
-        [Required(ErrorMessage ="Enter the Full Name")]
         public string Full_Name { get; set; }
         public Nullable<bool> email_notification_active { get; set; }
         public string Home_Phone { get; set; }

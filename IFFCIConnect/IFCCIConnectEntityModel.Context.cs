@@ -32,5 +32,12 @@ namespace IFFCIConnect
         public virtual DbSet<Tbl_Employer_Account> Tbl_Employer_Account { get; set; }
         public virtual DbSet<Tbl_Seeker_Account> Tbl_Seeker_Account { get; set; }
         public virtual DbSet<Tbl_User_Type> Tbl_User_Type { get; set; }
+        public virtual DbSet<Tbl_Seeker_EducationDetails> Tbl_Seeker_EducationDetails { get; set; }
+        public virtual DbSet<Tbl_Seeker_ExperinceDetails> Tbl_Seeker_ExperinceDetails { get; set; }
+        public virtual DbSet<Tbl_Seeker_MyAdditional_Information> Tbl_Seeker_MyAdditional_Information { get; set; }
+        public virtual DbSet<Tbl_Seeker_Professional_Summary> Tbl_Seeker_Professional_Summary { get; set; }
+        public virtual DbSet<Tbl_SkillsMaster> Tbl_SkillsMaster { get; set; }
+        public virtual DbSet<Tbl_SkillsMyAppointments> Tbl_SkillsMyAppointments { get; set; }
+        public virtual DbSet<Tbl_SkillsSet> Tbl_SkillsSet { get; set; }
     }
 }

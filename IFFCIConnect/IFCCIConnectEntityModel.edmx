@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IFCCIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="IFCCIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Country_Master">
           <Key>
             <PropertyRef Name="id" />
@@ -85,6 +85,96 @@
           <Property Name="Current_Address" Type="varchar" MaxLength="1000" Nullable="false" />
           <Property Name="SMS_notification_active" Type="bit" />
         </EntityType>
+        <EntityType Name="Tbl_Seeker_EducationDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Certificate_Degree_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Major_Subjects" Type="nvarchar(max)" />
+          <Property Name="Institute_University_Name" Type="nvarchar(max)" />
+          <Property Name="Starting_Date" Type="date" />
+          <Property Name="Completion_Date" Type="date" />
+          <Property Name="Percentage" Type="varchar" MaxLength="255" />
+          <Property Name="CGPA" Type="varchar" MaxLength="255" />
+          <Property Name="Is_active" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_ExperinceDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Is_Current_Job" Type="bit" />
+          <Property Name="Start_Date" Type="date" />
+          <Property Name="End_Date" Type="date" />
+          <Property Name="Job_Title" Type="varchar(max)" />
+          <Property Name="Company_Name" Type="nvarchar(max)" />
+          <Property Name="Job_Location_City" Type="nvarchar(max)" />
+          <Property Name="Job_Location_State" Type="nvarchar(max)" />
+          <Property Name="Job_Location_Country" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_MyAdditional_Information">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Interest" Type="nvarchar(max)" />
+          <Property Name="Carreer_Objective" Type="nvarchar(max)" />
+          <Property Name="Achievements" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_Professional_Summary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Professional_Summary" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMyAppointments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="EmployerName" Type="nvarchar(max)" />
+          <Property Name="JobTitle" Type="nvarchar(max)" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Action" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+          <Property Name="Skill_Id" Type="int" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar(max)" />
+          <Property Name="Other" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tbl_User_Type">
           <Key>
             <PropertyRef Name="id" />
@@ -101,10 +191,16 @@
           <EntitySet Name="Organization_Master" EntityType="Self.Organization_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Employer_Account" EntityType="Self.Tbl_Employer_Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Seeker_Account" EntityType="Self.Tbl_Seeker_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_EducationDetails" EntityType="Self.Tbl_Seeker_EducationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_ExperinceDetails" EntityType="Self.Tbl_Seeker_ExperinceDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_MyAdditional_Information" EntityType="Self.Tbl_Seeker_MyAdditional_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_Professional_Summary" EntityType="Self.Tbl_Seeker_Professional_Summary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SkillsMaster" EntityType="Self.Tbl_SkillsMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SkillsMyAppointments" EntityType="Self.Tbl_SkillsMyAppointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SkillsSet" EntityType="Self.Tbl_SkillsSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_User_Type" EntityType="Self.Tbl_User_Type" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IFCCIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -205,7 +301,104 @@
           <EntitySet Name="Tbl_Employer_Account" EntityType="Self.Tbl_Employer_Account" />
           <EntitySet Name="Tbl_Seeker_Account" EntityType="Self.Tbl_Seeker_Account" />
           <EntitySet Name="Tbl_User_Type" EntityType="Self.Tbl_User_Type" />
+          <EntitySet Name="Tbl_Seeker_EducationDetails" EntityType="IFCCIModel.Tbl_Seeker_EducationDetails" />
+          <EntitySet Name="Tbl_Seeker_ExperinceDetails" EntityType="IFCCIModel.Tbl_Seeker_ExperinceDetails" />
+          <EntitySet Name="Tbl_Seeker_MyAdditional_Information" EntityType="IFCCIModel.Tbl_Seeker_MyAdditional_Information" />
+          <EntitySet Name="Tbl_Seeker_Professional_Summary" EntityType="IFCCIModel.Tbl_Seeker_Professional_Summary" />
+          <EntitySet Name="Tbl_SkillsMaster" EntityType="IFCCIModel.Tbl_SkillsMaster" />
+          <EntitySet Name="Tbl_SkillsMyAppointments" EntityType="IFCCIModel.Tbl_SkillsMyAppointments" />
+          <EntitySet Name="Tbl_SkillsSet" EntityType="IFCCIModel.Tbl_SkillsSet" />
         </EntityContainer>
+        <EntityType Name="Tbl_Seeker_EducationDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Certificate_Degree_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Major_Subjects" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Institute_University_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Starting_Date" Type="DateTime" Precision="0" />
+          <Property Name="Completion_Date" Type="DateTime" Precision="0" />
+          <Property Name="Percentage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CGPA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Is_active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_ExperinceDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Is_Current_Job" Type="Boolean" />
+          <Property Name="Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Job_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Job_Location_City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Job_Location_State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Job_Location_Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_MyAdditional_Information">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Interest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Carreer_Objective" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Achievements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_Professional_Summary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Professional_Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMyAppointments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="EmployerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Id" Type="Int32" Nullable="false" />
+          <Property Name="Skill_Id" Type="Int32" Nullable="false" />
+          <Property Name="SkillName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -305,6 +498,103 @@
                 <ScalarProperty Name="user_type_name" ColumnName="user_type_name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_EducationDetails">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_Seeker_EducationDetails">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_EducationDetails">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Completion_Date" ColumnName="Completion_Date" />
+                <ScalarProperty Name="Starting_Date" ColumnName="Starting_Date" />
+                <ScalarProperty Name="Institute_University_Name" ColumnName="Institute_University_Name" />
+                <ScalarProperty Name="Major_Subjects" ColumnName="Major_Subjects" />
+                <ScalarProperty Name="Certificate_Degree_Name" ColumnName="Certificate_Degree_Name" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_ExperinceDetails">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_Seeker_ExperinceDetails">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_ExperinceDetails">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Job_Location_Country" ColumnName="Job_Location_Country" />
+                <ScalarProperty Name="Job_Location_State" ColumnName="Job_Location_State" />
+                <ScalarProperty Name="Job_Location_City" ColumnName="Job_Location_City" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="Is_Current_Job" ColumnName="Is_Current_Job" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_MyAdditional_Information">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_Seeker_MyAdditional_Information">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_MyAdditional_Information">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Achievements" ColumnName="Achievements" />
+                <ScalarProperty Name="Carreer_Objective" ColumnName="Carreer_Objective" />
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_Professional_Summary">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_Seeker_Professional_Summary">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_Professional_Summary">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Professional_Summary" ColumnName="Professional_Summary" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SkillsMaster">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_SkillsMaster">
+              <MappingFragment StoreEntitySet="Tbl_SkillsMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SkillsMyAppointments">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_SkillsMyAppointments">
+              <MappingFragment StoreEntitySet="Tbl_SkillsMyAppointments">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SkillsSet">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_SkillsSet">
+              <MappingFragment StoreEntitySet="Tbl_SkillsSet">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="Skill_Id" ColumnName="Skill_Id" />
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
