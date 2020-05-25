@@ -47,6 +47,26 @@ namespace IFFCIConnect.Controllers
             // return Json(files.Count + " Files Uploaded!");
         }
         [HttpPost]
+        public ActionResult UploadCompanyLogo()
+        {
+
+            string FileName = string.Empty;
+            //string path = Server.MapPath("~/Content/Upload/");
+            string TempFilePath = Server.MapPath("~/Upload/CompanyLogos/"); //System.Configuration.ConfigurationManager.AppSettings["HomeLoanFilesPath"];
+            if (!Directory.Exists(TempFilePath))
+                Directory.CreateDirectory(TempFilePath);
+            HttpFileCollectionBase files = Request.Files;
+            for (int i = 0; i < files.Count; i++)
+            {
+                HttpPostedFileBase file = files[i];
+                FileName = "MyCompanyLogo_" + Guid.NewGuid().ToString("N") + Path.GetExtension(file.FileName);
+                file.SaveAs(Path.Combine(TempFilePath, FileName));
+                //file.SaveAs(path + file.FileName);
+            }
+            return Json(new { Msg = "Company Logo has been Uploaded!", Filename = FileName });
+            // return Json(files.Count + " Files Uploaded!");
+        }
+        [HttpPost]
         public JsonResult RegisterSeekerAccount(Tbl_Seeker_Account SeekerAccountsDetails)
         {
 
@@ -120,7 +140,8 @@ namespace IFFCIConnect.Controllers
                     if (IsValid(email, password))
                     {
                         //FormsAuthentication.SetAuthCookie(email, user.RememberMe);
-                        return RedirectToAction("dashboard", "seeker");
+                        //return RedirectToAction("dashboard", "seeker");
+                        return RedirectToAction("MainEmployer", "Employer");
                     }
                     else
                     {

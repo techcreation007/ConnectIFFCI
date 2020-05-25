@@ -20,5 +20,9 @@ namespace IFFCIConnect.Controllers
         {
             return View();
         }
+        public ActionResult MainSeeker()
+        {
+            return View();
+        }
     }
 }

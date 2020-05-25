@@ -1,0 +1,283 @@
+﻿
+@{
+    ViewBag.Title = "MainEmployer";
+    Layout = "~/Views/Shared/_EmployerLayout.cshtml";
+}
+
+
+
+
+<style>
+    /*body {
+        color: #6a6c6f;
+        background-color: #f1f3f6;
+        margin-top: 30px;
+    }
+
+    .container {
+        max-width: 960px;
+    }*/
+
+    .panel-default > .panel-heading {
+        color: #333;
+        background-color: #fff;
+        border-color: #e4e5e7;
+        padding: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .panel-default > .panel-heading a {
+            display: block;
+            padding: 10px 15px;
+        }
+
+            .panel-default > .panel-heading a:after {
+                content: "";
+                position: relative;
+                top: 1px;
+                display: inline-block;
+                font-family: 'Glyphicons Halflings';
+                font-style: normal;
+                font-weight: 400;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                float: right;
+                transition: transform .25s linear;
+                -webkit-transition: -webkit-transform .25s linear;
+            }
+
+            .panel-default > .panel-heading a[aria-expanded="true"] {
+                background-color: #eee;
+            }
+
+                .panel-default > .panel-heading a[aria-expanded="true"]:after {
+                    content: "\2212";
+                    -webkit-transform: rotate(180deg);
+                    transform: rotate(180deg);
+                }
+
+            .panel-default > .panel-heading a[aria-expanded="false"]:after {
+                content: "\002b";
+                -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+            }
+
+    .accordion-option {
+        width: 100%;
+        float: left;
+        clear: both;
+        margin: 15px 0;
+    }
+
+        .accordion-option .title {
+            font-size: 20px;
+            font-weight: bold;
+            float: left;
+            padding: 0;
+            margin: 0;
+        }
+
+        .accordion-option .toggle-accordion {
+            float: right;
+            font-size: 16px;
+            color: #6a6c6f;
+        }
+
+            .accordion-option .toggle-accordion:before {
+                content: "Expand All";
+            }
+
+            .accordion-option .toggle-accordion.active:before {
+                content: "Collapse All";
+            }
+</style>
+<section class="content-header">
+    <h1>
+        Dashboard
+        @*<small>Control panel</small>*@
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Employer Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-2 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>24</h3>
+                    <p>Job offer</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-5">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>4<sup style="font-size: 20px"></sup></h3>
+                    <p>Review CVs</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-5">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>5</h3>
+                    <p>Confirm Appointments</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-5">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>5</h3>
+                    <p>Cancel Appointments</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <!-- ./col -->
+        <div class="col-lg-2 col-xs-5">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>5</h3>
+                    <p>Schedule Appointments</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <!-- ./col -->
+        @*<div class="col-lg-2 col-xs-5">
+             small box 
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>5</h3>
+                    <p>Pending Appointments</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>*@
+        <!-- ./col -->
+        <div class="container">
+            @*<div class="accordion-option">
+                    <h3 class="title">Lorem Ipsum</h3>
+                    <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+                </div>*@
+            <div class="clearfix"></div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <b>Job offer</b>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                            raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                <b>Review CVs</b>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                            raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                <b> Schedule Appointments</b>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                            on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                            raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+            $(document).ready(function () {
+
+                $(".toggle-accordion").on("click", function () {
+                    var accordionId = $(this).attr("accordion-id"),
+                        numPanelOpen = $(accordionId + ' .collapse.in').length;
+
+                    $(this).toggleClass("active");
+
+                    if (numPanelOpen == 0) {
+                        openAllPanels(accordionId);
+                    } else {
+                        closeAllPanels(accordionId);
+                    }
+                })
+
+                openAllPanels = function (aId) {
+                    console.log("setAllPanelOpen");
+                    $(aId + ' .panel-collapse:not(".in")').collapse('show');
+                }
+                closeAllPanels = function (aId) {
+                    console.log("setAllPanelclose");
+                    $(aId + ' .panel-collapse.in').collapse('hide');
+                }
+
+            });
+</script>

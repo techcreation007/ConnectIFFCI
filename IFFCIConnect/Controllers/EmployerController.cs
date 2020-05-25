@@ -13,5 +13,9 @@ namespace IFFCIConnect.Controllers
         {
             return View();
         }
+        public ActionResult MainEmployer()
+        {
+            return View();
+        }
     }
 }
