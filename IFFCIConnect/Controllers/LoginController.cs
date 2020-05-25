@@ -143,9 +143,9 @@ namespace IFFCIConnect.Controllers
                         //FormsAuthentication.SetAuthCookie(email, user.RememberMe);
                         UserProfile objUsers = (UserProfile)Session["UserProfile"];
                         
-                        if (objUsers.user_type_id==1)
+                        if (objUsers.userType=="U")
                         return RedirectToAction("MainSeeker", "seeker");
-                        else if(objUsers.user_type_id == 2)
+                        else if(objUsers.userType == "E")
                         return RedirectToAction("MainEmployer", "Employer");
                         else
                             return View("~/Views/login/Login.cshtml");
