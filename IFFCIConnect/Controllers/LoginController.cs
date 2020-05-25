@@ -1,4 +1,5 @@
-﻿using IFFCIConnect.ViewModel;
+﻿using IFFCIConnect.Models;
+using IFFCIConnect.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -110,11 +111,29 @@ namespace IFFCIConnect.Controllers
         {
             try
             {
+                var userProfile = new UserProfile();
                 var encodepassword = Cryptography.Crypt(_password);
                 var users = (from u in dbContext.Tbl_Seeker_Account
                              where u.email.Equals(_username) && u.password.Equals(encodepassword)
                              select u).FirstOrDefault();
-                Session["Name"] = users.Full_Name != null ? users.Full_Name : string.Empty ;
+                userProfile.id = users.id;
+                userProfile.City = users.City;
+                userProfile.contact_number = users.contact_number;
+                userProfile.Current_Address = users.Current_Address;
+                userProfile.date_of_birth = users.date_of_birth;
+                userProfile.email = users.email;
+                userProfile.email_notification_active = users.email_notification_active;
+                userProfile.Full_Name = users.Full_Name;
+                userProfile.gender = users.gender;
+                userProfile.Home_Phone = users.Home_Phone;
+                userProfile.Is_active = users.Is_active;
+                userProfile.Location = users.Location;
+                userProfile.Nationality = users.Nationality;
+                userProfile.registration_date = users.registration_date;
+                userProfile.ResumeFileName = users.ResumeFileName;
+                userProfile.SMS_notification_active = users.SMS_notification_active;
+                userProfile.user_type_id = users.user_type_id;
+                Session["UserProfile"] = userProfile;
                 if (users != null) { return true; } else { return false; }
             }
 

@@ -12,14 +12,14 @@
 </head>
 <body>
     <div id="fb-root"></div>
-    <script>
-        (function (d, s, id) {
+    <script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=753955744634665";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+  
     <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -35,15 +35,13 @@
                     @*<li>@Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>*@
                     @*<li>@Html.ActionLink("BrowseURLs", "Index", new { Controller = "BrowseURL", Area = "Common" })</li>*@
 
-
-                    <li>@Html.ActionLink("Search a Job", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("Search a Job", "Index", "Home", new { Area = "Common" })</li>
                     <li>@Html.ActionLink("About Us", "Index", new { Controller = "Home", Area = "Common" })</li>
                     <li>@Html.ActionLink("Contact Us", "Index", new { Controller = "Home", Area = "Common" })</li>
                     @*<li>@Html.ActionLink("Administrator", "Index", new { Controller = "Home", Area = "Common" })</li>*@
-                    <li>@Html.ActionLink("LOGIN", "Index", new { Controller = "Home", Area = "Common" })</li>
+                    <li>@Html.ActionLink("LOGIN", "Register", "Login")</li>
                     <li>@Html.ActionLink("JOB SEEKER", "Index", new { Controller = "Home", Area = "Common" })</li>
                     <li>@Html.ActionLink("EMPLOYER", "Index", new { Controller = "Home", Area = "Common" })</li>
-
                 </ul>
                 @*@if (!User.Identity.IsAuthenticated)
                     {
@@ -53,20 +51,15 @@
                     }*@
             </div>
         </div>
-
     </div>
-
     <div class="container body-content">
         <br /><br />
         @RenderBody()
-
         <hr />
-
         <footer>
             <p>&copy; @DateTime.Now.Year - IFCCI Job Portal </p>
         </footer>
     </div>
-
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
