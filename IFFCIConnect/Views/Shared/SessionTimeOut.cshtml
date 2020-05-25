@@ -1,0 +1,112 @@
+﻿@model System.Web.Mvc.SessionStateAttribute
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+@if (HttpContext.Current.Session["UserProfile"] == null)
+{
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Panel</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="~/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/skins/skin-blue.min.css">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <title>Session Expired</title>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+</head>
+@*<body style="padding-top:0px!important;padding-bottom:0px!important;">
+    <div>
+        <div class="container">
+            <div style="background-color:#002c6e">
+                <div class="row  nav navbar-nav navbar-center">
+                    <img src="~/Content/images/New_Logo.png" class="img-thumbnail" alt="Banner" />
+                </div>
+                <div class="navbar-right" style="margin-right:0px!important">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="body-content" style="min-height:500px;">
+            <div class="well">
+                <div class="row">
+                    <div class="col-xs-12">
+                        Your session has expired. Go to <a href="@Url.Action("Index", "Home")">Home</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer" style="background:rgba(0, 44, 110, 1);color:white;">
+            <strong>Copyright &copy; 2020 <a href="https://www.ifcci.org.in/">IFCCI</a>.</strong> All rights reserved.<br />
+        </div>
+    </div>
+</body>*@
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>IFCCI</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>IFCCI</b> Job Portal</span>
+            </a>
+            <!-- Header Navbar -->
+           
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+       
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header)-->
+           
+            <div class="container">
+                <div class="body-content" style="min-height:500px;">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                Your session has expired. Go to <a href="@Url.Action("Index", "Home")">Home</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="panel-footer" style="background:rgba(0, 44, 110, 1);color:white;">
+                    <strong>Copyright &copy; 2020 <a href="https://www.ifcci.org.in/">IFCCI</a>.</strong> All rights reserved.<br />
+                </div>*@
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2020 <a href="https://www.ifcci.org.in/">IFCCI</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+   
+</body>
+</html>
+}

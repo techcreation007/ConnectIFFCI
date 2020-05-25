@@ -141,12 +141,20 @@ namespace IFFCIConnect.Controllers
                     if (IsValid(email, password))
                     {
                         //FormsAuthentication.SetAuthCookie(email, user.RememberMe);
-                        //return RedirectToAction("dashboard", "seeker");
+                        UserProfile objUsers = (UserProfile)Session["UserProfile"];
+                        
+                        if (objUsers.user_type_id==1)
+                        return RedirectToAction("MainSeeker", "seeker");
+                        else if(objUsers.user_type_id == 2)
                         return RedirectToAction("MainEmployer", "Employer");
+                        else
+                            return View("~/Views/login/Login.cshtml");
+
                     }
                     else
                     {
                         ModelState.AddModelError("", "Login data is incorrect!");
+                        Session["UserProfile"] = null;
                     }                    
                 }
                 return View("~/Views/login/Login.cshtml");
@@ -156,7 +164,35 @@ namespace IFFCIConnect.Controllers
                 return null;
             }
         }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            Session["UserProfile"] = null;
+            Session["SessionEmpProfile"] = null;
+            //Session["EmpName"] = null;
+            //Session["Pan_No"] = null;
+            //Session["Email"] = null;
+            //Session["Designation"] = null;
+            //Session["EmpType"] = null;
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            Response.AddHeader("Cache-control", "no-store, must-revalidate, private, no-cache");
+            Response.AddHeader("Pragma", "no-cache");
+            Response.AddHeader("Expires", "0");
+            //Response.AppendToLog("window.location.reload();");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+
+            Response.Cache.SetNoStore();
+
+
+            FormsAuthentication.SignOut();
+            return RedirectToAction("login", "login");
+
+        }
 
         public bool IsValid(string _username, string _password)
         {

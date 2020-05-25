@@ -26,5 +26,12 @@ namespace IFFCIConnect.Controllers
 
             return View();
         }
+        public ActionResult SessionTimeout()
+        {
+            Session["UserProfile"] = null;
+            
+            return View("~/Views/Shared/SessionTimeOut.cshtml");
+        }
+
     }
 }

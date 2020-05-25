@@ -3385,6 +3385,7 @@
     <Content Include="Views\Shared\_MainEmployerMenu.cshtml" />
     <Content Include="Views\Seeker\MainSeeker.cshtml" />
     <Content Include="Views\Employer\MainEmployer.cshtml" />
+    <Content Include="Views\Shared\SessionTimeOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
