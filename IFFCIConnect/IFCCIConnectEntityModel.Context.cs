@@ -39,5 +39,7 @@ namespace IFFCIConnect
         public virtual DbSet<Tbl_SkillsMyAppointments> Tbl_SkillsMyAppointments { get; set; }
         public virtual DbSet<Tbl_SkillsSet> Tbl_SkillsSet { get; set; }
         public virtual DbSet<Tbl_Employer_Account> Tbl_Employer_Account { get; set; }
+        public virtual DbSet<Tbl_Employer_CVsReview> Tbl_Employer_CVsReview { get; set; }
+        public virtual DbSet<Tbl_Employer_JobPost> Tbl_Employer_JobPost { get; set; }
     }
 }

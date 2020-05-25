@@ -64,6 +64,37 @@
           <Property Name="Designation" Type="varchar" MaxLength="500" />
           <Property Name="Company_logo" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="Tbl_Employer_CVsReview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobPost_id" Type="int" Nullable="false" />
+          <Property Name="Employer_id" Type="int" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="SeekerJobApplyDateTime" Type="datetime" />
+          <Property Name="SeekerScheduleInterviewDateTime" Type="datetime" />
+          <Property Name="IsAcceptByEmployer" Type="bit" />
+          <Property Name="IsRejectByEmployer" Type="bit" />
+          <Property Name="IsAcceptBySeeker" Type="bit" />
+          <Property Name="IsRejectBySeeker" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_JobPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employer_id" Type="int" Nullable="false" />
+          <Property Name="Experince" Type="nvarchar(max)" />
+          <Property Name="Skills_set" Type="nvarchar(max)" />
+          <Property Name="NoOfOpening" Type="nvarchar(max)" />
+          <Property Name="JobTitle" Type="nvarchar(max)" />
+          <Property Name="JobPostDateTime" Type="datetime" />
+          <Property Name="JobFile" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="Tbl_Seeker_Account">
           <Key>
             <PropertyRef Name="id" />
@@ -192,6 +223,8 @@
           <EntitySet Name="NumberOfEmployee_Master" EntityType="Self.NumberOfEmployee_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Organization_Master" EntityType="Self.Organization_Master" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Employer_Account" EntityType="Self.Tbl_Employer_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Employer_CVsReview" EntityType="Self.Tbl_Employer_CVsReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Employer_JobPost" EntityType="Self.Tbl_Employer_JobPost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Seeker_Account" EntityType="Self.Tbl_Seeker_Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Seeker_EducationDetails" EntityType="Self.Tbl_Seeker_EducationDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tbl_Seeker_ExperinceDetails" EntityType="Self.Tbl_Seeker_ExperinceDetails" Schema="dbo" store:Type="Tables" />
@@ -285,6 +318,8 @@
           <EntitySet Name="Tbl_SkillsMyAppointments" EntityType="IFCCIModel.Tbl_SkillsMyAppointments" />
           <EntitySet Name="Tbl_SkillsSet" EntityType="IFCCIModel.Tbl_SkillsSet" />
           <EntitySet Name="Tbl_Employer_Account" EntityType="IFCCIModel.Tbl_Employer_Account" />
+          <EntitySet Name="Tbl_Employer_CVsReview" EntityType="IFCCIModel.Tbl_Employer_CVsReview" />
+          <EntitySet Name="Tbl_Employer_JobPost" EntityType="IFCCIModel.Tbl_Employer_JobPost" />
         </EntityContainer>
         <EntityType Name="Tbl_Seeker_EducationDetails">
           <Key>
@@ -402,6 +437,37 @@
           <Property Name="GST_Number" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Designation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="Company_logo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_CVsReview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobPost_id" Type="Int32" Nullable="false" />
+          <Property Name="Employer_id" Type="Int32" Nullable="false" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="SeekerJobApplyDateTime" Type="DateTime" Precision="3" />
+          <Property Name="SeekerScheduleInterviewDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsAcceptByEmployer" Type="Boolean" />
+          <Property Name="IsRejectByEmployer" Type="Boolean" />
+          <Property Name="IsAcceptBySeeker" Type="Boolean" />
+          <Property Name="IsRejectBySeeker" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_JobPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employer_id" Type="Int32" Nullable="false" />
+          <Property Name="Experince" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Skills_set" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfOpening" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobPostDateTime" Type="DateTime" Precision="3" />
+          <Property Name="JobFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -600,6 +666,39 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Employer_CVsReview">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_Employer_CVsReview">
+              <MappingFragment StoreEntitySet="Tbl_Employer_CVsReview">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsRejectBySeeker" ColumnName="IsRejectBySeeker" />
+                <ScalarProperty Name="IsAcceptBySeeker" ColumnName="IsAcceptBySeeker" />
+                <ScalarProperty Name="IsRejectByEmployer" ColumnName="IsRejectByEmployer" />
+                <ScalarProperty Name="IsAcceptByEmployer" ColumnName="IsAcceptByEmployer" />
+                <ScalarProperty Name="SeekerScheduleInterviewDateTime" ColumnName="SeekerScheduleInterviewDateTime" />
+                <ScalarProperty Name="SeekerJobApplyDateTime" ColumnName="SeekerJobApplyDateTime" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+                <ScalarProperty Name="JobPost_id" ColumnName="JobPost_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Employer_JobPost">
+            <EntityTypeMapping TypeName="IFCCIModel.Tbl_Employer_JobPost">
+              <MappingFragment StoreEntitySet="Tbl_Employer_JobPost">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="JobFile" ColumnName="JobFile" />
+                <ScalarProperty Name="JobPostDateTime" ColumnName="JobPostDateTime" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="NoOfOpening" ColumnName="NoOfOpening" />
+                <ScalarProperty Name="Skills_set" ColumnName="Skills_set" />
+                <ScalarProperty Name="Experince" ColumnName="Experince" />
+                <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

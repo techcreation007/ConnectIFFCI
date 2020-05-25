@@ -170,6 +170,12 @@
     <Compile Include="Tbl_Employer_Account.cs">
       <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tbl_Employer_CVsReview.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tbl_Employer_JobPost.cs">
+      <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tbl_Seeker_Account.cs">
       <DependentUpon>IFCCIConnectEntityModel.tt</DependentUpon>
     </Compile>

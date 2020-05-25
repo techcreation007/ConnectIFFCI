@@ -19,6 +19,8 @@
         <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsMyAppointments" Width="1.5" PointX="9.75" PointY="3.75" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsSet" Width="1.5" PointX="9.75" PointY="7.75" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_Employer_Account" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Employer_CVsReview" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Employer_JobPost" Width="1.5" PointX="7.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
