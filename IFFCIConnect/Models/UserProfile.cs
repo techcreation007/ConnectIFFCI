@@ -25,5 +25,7 @@ namespace IFFCIConnect.Models
         public string Current_Address { get; set; }
         public Nullable<bool> SMS_notification_active { get; set; }
 
+        public string userType { get; set; }
+
     }
 }
