@@ -200,11 +200,17 @@ namespace IFFCIConnect.Controllers
             {
                 var userProfile = new UserProfile();
                 var encodepassword = Cryptography.Crypt(_password);
-                var users = (from u in dbContext.Tbl_Seeker_Account
+                var users = (from u in dbContext.Tbl_Seeker_Account join od in dbContext.Tbl_User_Type on u.user_type_id equals od.id
                              where u.email.Equals(_username) && u.password.Equals(encodepassword)
-                             select u).FirstOrDefault();
+                             select new {
+                                 u.City, u.contact_number, u.Current_Address, u.date_of_birth, u.email,
+                                 u.email_notification_active, u.Full_Name,u.gender,u.Home_Phone,u.id,
+                                 u.Is_active, u.Location,u.Nationality, u.password, u.registration_date, u.ResumeFileName, u.SMS_notification_active,
+                                 u.user_type_id, od.UserType, od.user_type_name
+                             }).FirstOrDefault();
                 userProfile.id = users.id;
                 userProfile.City = users.City;
+                userProfile.userType = users.UserType;
                 userProfile.contact_number = users.contact_number;
                 userProfile.Current_Address = users.Current_Address;
                 userProfile.date_of_birth = users.date_of_birth;
