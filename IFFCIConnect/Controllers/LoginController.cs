@@ -59,7 +59,7 @@ namespace IFFCIConnect.Controllers
                 message = "Full Name already exists.!";
             else if (Results.Where(w => w.email.Contains(SeekerAccountsDetails.email)).Any())
                 message = "Supplied email address has already been used!";
-            else if (Results.Where(w => w.email.Contains(SeekerAccountsDetails.contact_number)).Any())
+            else if (Results.Where(w => w.contact_number.Contains(SeekerAccountsDetails.contact_number)).Any())
                 message = "Contact number  is already exist!";
             else
             {
@@ -68,6 +68,36 @@ namespace IFFCIConnect.Controllers
                 dbContext.Tbl_Seeker_Account.Add(SeekerAccountsDetails);
                 dbContext.SaveChanges();
                 message = "Registration successful.\\nUserId Id: " + SeekerAccountsDetails.email.ToString();
+
+
+            }
+
+            return Json(message);
+        }
+
+        [HttpPost]
+        public JsonResult RegisterEmployerAccount(Tbl_Employer_Account EmployerAccountsDetails)
+        {
+
+
+            string message = string.Empty;
+            EmployerAccountsDetails.registration_date = DateTime.Now;
+            var Results = dbContext.Tbl_Employer_Account.ToList();
+            if (Results.Where(w => w.Full_Name.Contains(EmployerAccountsDetails.Full_Name)).Any())
+                message = "Full Name already exists.!";
+            else if (Results.Where(w => w.Email.Contains(EmployerAccountsDetails.Email)).Any())
+                message = "Supplied email address has already been used!";
+            else if (Results.Where(w => w.Contact_Number.Contains(EmployerAccountsDetails.Contact_Number)).Any())
+                message = "Contact number  is already exist!";
+            else if (Results.Where(w => w.Company_Name.Contains(EmployerAccountsDetails.Company_Name)).Any())
+                message = "Company Name number  is already exist!";
+            else
+            {
+                EmployerAccountsDetails.Password = ViewModel.Cryptography.Crypt(EmployerAccountsDetails.Password.ToString().Trim());
+                EmployerAccountsDetails.user_type_id = 2;
+                dbContext.Tbl_Employer_Account.Add(EmployerAccountsDetails);
+                dbContext.SaveChanges();
+                message = "Registration successful.\\nUserId Id: " + EmployerAccountsDetails.Email.ToString();
 
 
             }

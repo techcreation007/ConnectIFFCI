@@ -4,12 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9a8fb09b83e343af87b03ffdce159755" Name="Diagram1">
+      <Diagram DiagramId="9a8fb09b83e343af87b03ffdce159755" Name="Diagram1" ZoomLevel="67">
         <EntityTypeShape EntityType="IFCCIModel.Country_Master" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Industry_Master" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.NumberOfEmployee_Master" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Organization_Master" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IFCCIModel.Tbl_Employer_Account" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_Account" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_User_Type" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_Seeker_EducationDetails" Width="1.5" PointX="3.75" PointY="6.75" />
@@ -19,6 +18,7 @@
         <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsMaster" Width="1.5" PointX="0.75" PointY="9.75" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsMyAppointments" Width="1.5" PointX="9.75" PointY="3.75" />
         <EntityTypeShape EntityType="IFCCIModel.Tbl_SkillsSet" Width="1.5" PointX="9.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IFCCIModel.Tbl_Employer_Account" Width="1.5" PointX="3.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

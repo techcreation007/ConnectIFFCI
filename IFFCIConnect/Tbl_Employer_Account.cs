@@ -28,11 +28,13 @@ namespace IFFCIConnect
         public string Company_Video { get; set; }
         public string Number_of_Employees { get; set; }
         public string Company_Description { get; set; }
-        public byte[] Company_logo { get; set; }
         public bool Is_active { get; set; }
         public string Full_Name { get; set; }
         public Nullable<bool> Email_notification_active { get; set; }
         public System.DateTime registration_date { get; set; }
         public Nullable<bool> SMS_notification_active { get; set; }
+        public string GST_Number { get; set; }
+        public string Designation { get; set; }
+        public string Company_logo { get; set; }
     }
 }

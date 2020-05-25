@@ -29,7 +29,6 @@ namespace IFFCIConnect
         public virtual DbSet<Industry_Master> Industry_Master { get; set; }
         public virtual DbSet<NumberOfEmployee_Master> NumberOfEmployee_Master { get; set; }
         public virtual DbSet<Organization_Master> Organization_Master { get; set; }
-        public virtual DbSet<Tbl_Employer_Account> Tbl_Employer_Account { get; set; }
         public virtual DbSet<Tbl_Seeker_Account> Tbl_Seeker_Account { get; set; }
         public virtual DbSet<Tbl_User_Type> Tbl_User_Type { get; set; }
         public virtual DbSet<Tbl_Seeker_EducationDetails> Tbl_Seeker_EducationDetails { get; set; }
@@ -39,5 +38,6 @@ namespace IFFCIConnect
         public virtual DbSet<Tbl_SkillsMaster> Tbl_SkillsMaster { get; set; }
         public virtual DbSet<Tbl_SkillsMyAppointments> Tbl_SkillsMyAppointments { get; set; }
         public virtual DbSet<Tbl_SkillsSet> Tbl_SkillsSet { get; set; }
+        public virtual DbSet<Tbl_Employer_Account> Tbl_Employer_Account { get; set; }
     }
 }
