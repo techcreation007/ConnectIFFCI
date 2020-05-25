@@ -20,13 +20,14 @@
             <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
             <h3>Welcome</h3>
             <p>Thank you  for signing up our job portal. Once your account is verified ,you can post the current opening at  your organization and  search a job seekers!</p>
-            <input type="submit" name="" value="Login" />
+            @*<input type="submit" name="" value="Login" />*@
+            @Html.ActionLink("LOGIN", "Login", "Login", new {@class = "btnRegister" })
             @*<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link" id="Login-tab" data-toggle="tab" href="#Login" role="tab" aria-controls="Login" aria-selected="false">Login</a>
                 </li>
             </ul>*@
-                <br />
+            <br />
         </div>
         <div class="col-md-9 register-right">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
