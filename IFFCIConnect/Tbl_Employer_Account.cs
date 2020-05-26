@@ -14,6 +14,13 @@ namespace IFFCIConnect
     
     public partial class Tbl_Employer_Account
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Employer_Account()
+        {
+            this.Tbl_Employer_CVsReview = new HashSet<Tbl_Employer_CVsReview>();
+            this.Tbl_Employer_JobPost = new HashSet<Tbl_Employer_JobPost>();
+        }
+    
         public int id { get; set; }
         public int user_type_id { get; set; }
         public string Email { get; set; }
@@ -36,5 +43,11 @@ namespace IFFCIConnect
         public string GST_Number { get; set; }
         public string Designation { get; set; }
         public string Company_logo { get; set; }
+    
+        public virtual Tbl_User_Type Tbl_User_Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Employer_CVsReview> Tbl_Employer_CVsReview { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Employer_JobPost> Tbl_Employer_JobPost { get; set; }
     }
 }

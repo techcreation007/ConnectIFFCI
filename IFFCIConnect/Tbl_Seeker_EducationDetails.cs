@@ -25,5 +25,7 @@ namespace IFFCIConnect
         public string CGPA { get; set; }
         public bool Is_active { get; set; }
         public System.DateTime CreatedDate { get; set; }
+    
+        public virtual Tbl_Seeker_Account Tbl_Seeker_Account { get; set; }
     }
 }

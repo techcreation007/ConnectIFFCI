@@ -26,5 +26,7 @@ namespace IFFCIConnect
         public string Job_Location_Country { get; set; }
         public string Description { get; set; }
         public System.DateTime CreatedDate { get; set; }
+    
+        public virtual Tbl_Seeker_Account Tbl_Seeker_Account { get; set; }
     }
 }

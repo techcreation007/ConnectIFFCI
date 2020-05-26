@@ -14,9 +14,21 @@ namespace IFFCIConnect
     
     public partial class Tbl_User_Type
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_User_Type()
+        {
+            this.Tbl_Seeker_Account = new HashSet<Tbl_Seeker_Account>();
+            this.Tbl_Employer_Account = new HashSet<Tbl_Employer_Account>();
+        }
+    
         public int id { get; set; }
         public string user_type_name { get; set; }
         public bool IsActive { get; set; }
         public string UserType { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Seeker_Account> Tbl_Seeker_Account { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Employer_Account> Tbl_Employer_Account { get; set; }
     }
 }

@@ -19,5 +19,7 @@ namespace IFFCIConnect
         public string Professional_Summary { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public System.DateTime CreatedDate { get; set; }
+    
+        public virtual Tbl_Seeker_Account Tbl_Seeker_Account { get; set; }
     }
 }

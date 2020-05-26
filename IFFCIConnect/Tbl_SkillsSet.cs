@@ -15,11 +15,13 @@ namespace IFFCIConnect
     public partial class Tbl_SkillsSet
     {
         public int id { get; set; }
-        public int User_Id { get; set; }
+        public int Seeker_Id { get; set; }
         public int Skill_Id { get; set; }
         public string SkillName { get; set; }
         public string Other { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public System.DateTime CreatedDate { get; set; }
+    
+        public virtual Tbl_Seeker_Account Tbl_Seeker_Account { get; set; }
     }
 }

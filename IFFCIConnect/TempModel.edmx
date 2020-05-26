@@ -1,0 +1,1152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TempIFCCIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NumberOfEmployee_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_type_id" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Industry" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Org_Type" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Landline_Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contact_Number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Company_Address" Type="varchar(max)" />
+          <Property Name="Company_website_URL" Type="varchar(max)" />
+          <Property Name="Company_Video" Type="varchar(max)" />
+          <Property Name="Number_of_Employees" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Company_Description" Type="varchar(max)" />
+          <Property Name="Is_active" Type="bit" Nullable="false" />
+          <Property Name="Full_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email_notification_active" Type="bit" />
+          <Property Name="registration_date" Type="datetime" Nullable="false" />
+          <Property Name="SMS_notification_active" Type="bit" />
+          <Property Name="GST_Number" Type="varchar" MaxLength="500" />
+          <Property Name="Designation" Type="varchar" MaxLength="500" />
+          <Property Name="Company_logo" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_CVsReview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobPost_id" Type="int" Nullable="false" />
+          <Property Name="Employer_id" Type="int" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="SeekerJobApplyDateTime" Type="datetime" />
+          <Property Name="SeekerScheduleInterviewDateTime" Type="datetime" />
+          <Property Name="IsAcceptByEmployer" Type="bit" />
+          <Property Name="IsRejectByEmployer" Type="bit" />
+          <Property Name="IsAcceptBySeeker" Type="bit" />
+          <Property Name="IsRejectBySeeker" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_JobPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Employer_id" Type="int" Nullable="false" />
+          <Property Name="Experince" Type="nvarchar(max)" />
+          <Property Name="Skills_set" Type="nvarchar(max)" />
+          <Property Name="NoOfOpening" Type="nvarchar(max)" />
+          <Property Name="JobTitle" Type="nvarchar(max)" />
+          <Property Name="JobPostDateTime" Type="datetime" />
+          <Property Name="JobFile" Type="nvarchar(max)" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_type_id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="date_of_birth" Type="date" Nullable="false" />
+          <Property Name="gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Is_active" Type="bit" Nullable="false" />
+          <Property Name="contact_number" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Full_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email_notification_active" Type="bit" />
+          <Property Name="Home_Phone" Type="varchar" MaxLength="20" />
+          <Property Name="registration_date" Type="datetime" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nationality" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResumeFileName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Current_Address" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="SMS_notification_active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_EducationDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Certificate_Degree_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Major_Subjects" Type="nvarchar(max)" />
+          <Property Name="Institute_University_Name" Type="nvarchar(max)" />
+          <Property Name="Starting_Date" Type="date" />
+          <Property Name="Completion_Date" Type="date" />
+          <Property Name="Percentage" Type="varchar" MaxLength="255" />
+          <Property Name="CGPA" Type="varchar" MaxLength="255" />
+          <Property Name="Is_active" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_ExperinceDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Is_Current_Job" Type="bit" />
+          <Property Name="Start_Date" Type="date" />
+          <Property Name="End_Date" Type="date" />
+          <Property Name="Job_Title" Type="varchar(max)" />
+          <Property Name="Company_Name" Type="nvarchar(max)" />
+          <Property Name="Job_Location_City" Type="nvarchar(max)" />
+          <Property Name="Job_Location_State" Type="nvarchar(max)" />
+          <Property Name="Job_Location_Country" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_MyAdditional_Information">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Interest" Type="nvarchar(max)" />
+          <Property Name="Carreer_Objective" Type="nvarchar(max)" />
+          <Property Name="Achievements" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_Professional_Summary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="Professional_Summary" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMyAppointments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_id" Type="int" Nullable="false" />
+          <Property Name="EmployerName" Type="nvarchar(max)" />
+          <Property Name="JobTitle" Type="nvarchar(max)" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="Action" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seeker_Id" Type="int" Nullable="false" />
+          <Property Name="Skill_Id" Type="int" Nullable="false" />
+          <Property Name="SkillName" Type="nvarchar(max)" />
+          <Property Name="Other" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tbl_User_Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_type_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UserType" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Tbl_Employer_Account_Tbl_User_Type">
+          <End Role="Tbl_User_Type" Type="Self.Tbl_User_Type" Multiplicity="1" />
+          <End Role="Tbl_Employer_Account" Type="Self.Tbl_Employer_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User_Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_Account">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Employer_AccountTbl_Employer_CVsReview">
+          <End Role="Tbl_Employer_Account" Type="Self.Tbl_Employer_Account" Multiplicity="1" />
+          <End Role="Tbl_Employer_CVsReview" Type="Self.Tbl_Employer_CVsReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Employer_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_CVsReview">
+              <PropertyRef Name="Employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Employer_AccountTbl_Employer_JobPost">
+          <End Role="Tbl_Employer_Account" Type="Self.Tbl_Employer_Account" Multiplicity="1" />
+          <End Role="Tbl_Employer_JobPost" Type="Self.Tbl_Employer_JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Employer_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_JobPost">
+              <PropertyRef Name="Employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Employer_CVsReview">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_Employer_CVsReview" Type="Self.Tbl_Employer_CVsReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_CVsReview">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_Seeker_EducationDetails" Type="Self.Tbl_Seeker_EducationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_EducationDetails">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_Seeker_ExperinceDetails" Type="Self.Tbl_Seeker_ExperinceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_ExperinceDetails">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_Seeker_MyAdditional_Information" Type="Self.Tbl_Seeker_MyAdditional_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_MyAdditional_Information">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_Seeker_Professional_Summary" Type="Self.Tbl_Seeker_Professional_Summary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_Professional_Summary">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_SkillsMyAppointments" Type="Self.Tbl_SkillsMyAppointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_SkillsMyAppointments">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_SkillsSet">
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="1" />
+          <End Role="Tbl_SkillsSet" Type="Self.Tbl_SkillsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_SkillsSet">
+              <PropertyRef Name="Seeker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_TypeTbl_Employer_Account">
+          <End Role="Tbl_User_Type" Type="Self.Tbl_User_Type" Multiplicity="1" />
+          <End Role="Tbl_Employer_Account" Type="Self.Tbl_Employer_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User_Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_Account">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_User_TypeTbl_Seeker_Account">
+          <End Role="Tbl_User_Type" Type="Self.Tbl_User_Type" Multiplicity="1" />
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User_Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_Account">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TempIFCCIModelStoreContainer">
+          <EntitySet Name="Country_Master" EntityType="Self.Country_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Industry_Master" EntityType="Self.Industry_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumberOfEmployee_Master" EntityType="Self.NumberOfEmployee_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Organization_Master" EntityType="Self.Organization_Master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Employer_Account" EntityType="Self.Tbl_Employer_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Employer_CVsReview" EntityType="Self.Tbl_Employer_CVsReview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Employer_JobPost" EntityType="Self.Tbl_Employer_JobPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_Account" EntityType="Self.Tbl_Seeker_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_EducationDetails" EntityType="Self.Tbl_Seeker_EducationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_ExperinceDetails" EntityType="Self.Tbl_Seeker_ExperinceDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_MyAdditional_Information" EntityType="Self.Tbl_Seeker_MyAdditional_Information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_Seeker_Professional_Summary" EntityType="Self.Tbl_Seeker_Professional_Summary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SkillsMaster" EntityType="Self.Tbl_SkillsMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SkillsMyAppointments" EntityType="Self.Tbl_SkillsMyAppointments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_SkillsSet" EntityType="Self.Tbl_SkillsSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tbl_User_Type" EntityType="Self.Tbl_User_Type" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Tbl_Employer_Account_Tbl_User_Type" Association="Self.FK_Tbl_Employer_Account_Tbl_User_Type">
+            <End Role="Tbl_User_Type" EntitySet="Tbl_User_Type" />
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Employer_AccountTbl_Employer_CVsReview" Association="Self.FK_Tbl_Employer_AccountTbl_Employer_CVsReview">
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+            <End Role="Tbl_Employer_CVsReview" EntitySet="Tbl_Employer_CVsReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Employer_AccountTbl_Employer_JobPost" Association="Self.FK_Tbl_Employer_AccountTbl_Employer_JobPost">
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+            <End Role="Tbl_Employer_JobPost" EntitySet="Tbl_Employer_JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Employer_CVsReview" Association="Self.FK_Tbl_Seeker_AccountTbl_Employer_CVsReview">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Employer_CVsReview" EntitySet="Tbl_Employer_CVsReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails" Association="Self.FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_EducationDetails" EntitySet="Tbl_Seeker_EducationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails" Association="Self.FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_ExperinceDetails" EntitySet="Tbl_Seeker_ExperinceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information" Association="Self.FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_MyAdditional_Information" EntitySet="Tbl_Seeker_MyAdditional_Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary" Association="Self.FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_Professional_Summary" EntitySet="Tbl_Seeker_Professional_Summary" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments" Association="Self.FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_SkillsMyAppointments" EntitySet="Tbl_SkillsMyAppointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_SkillsSet" Association="Self.FK_Tbl_Seeker_AccountTbl_SkillsSet">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_SkillsSet" EntitySet="Tbl_SkillsSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_TypeTbl_Employer_Account" Association="Self.FK_Tbl_User_TypeTbl_Employer_Account">
+            <End Role="Tbl_User_Type" EntitySet="Tbl_User_Type" />
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_User_TypeTbl_Seeker_Account" Association="Self.FK_Tbl_User_TypeTbl_Seeker_Account">
+            <End Role="Tbl_User_Type" EntitySet="Tbl_User_Type" />
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TempIFCCIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tbl_Seeker_Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_type_id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Is_active" Type="Boolean" Nullable="false" />
+          <Property Name="contact_number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Full_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_notification_active" Type="Boolean" />
+          <Property Name="Home_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResumeFileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Current_Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SMS_notification_active" Type="Boolean" />
+          <NavigationProperty Name="Tbl_User_Type" Relationship="Self.FK_Tbl_User_TypeTbl_Seeker_Account" FromRole="Tbl_Seeker_Account" ToRole="Tbl_User_Type" />
+          <NavigationProperty Name="Tbl_Seeker_Professional_Summary" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary" FromRole="Tbl_Seeker_Account" ToRole="Tbl_Seeker_Professional_Summary" />
+          <NavigationProperty Name="Tbl_Seeker_EducationDetails" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails" FromRole="Tbl_Seeker_Account" ToRole="Tbl_Seeker_EducationDetails" />
+          <NavigationProperty Name="Tbl_Employer_CVsReview" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Employer_CVsReview" FromRole="Tbl_Seeker_Account" ToRole="Tbl_Employer_CVsReview" />
+          <NavigationProperty Name="Tbl_Seeker_ExperinceDetails" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails" FromRole="Tbl_Seeker_Account" ToRole="Tbl_Seeker_ExperinceDetails" />
+          <NavigationProperty Name="Tbl_Seeker_MyAdditional_Information" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information" FromRole="Tbl_Seeker_Account" ToRole="Tbl_Seeker_MyAdditional_Information" />
+          <NavigationProperty Name="Tbl_SkillsMyAppointments" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments" FromRole="Tbl_Seeker_Account" ToRole="Tbl_SkillsMyAppointments" />
+          <NavigationProperty Name="Tbl_SkillsSet" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsSet" FromRole="Tbl_Seeker_Account" ToRole="Tbl_SkillsSet" />
+        </EntityType>
+        <EntityType Name="Tbl_User_Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_type_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="UserType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="Self.FK_Tbl_User_TypeTbl_Seeker_Account" FromRole="Tbl_User_Type" ToRole="Tbl_Seeker_Account" />
+          <NavigationProperty Name="Tbl_Employer_Account" Relationship="TempIFCCIModel.FK_Tbl_Employer_Account_Tbl_User_Type" FromRole="Tbl_User_Type" ToRole="Tbl_Employer_Account" />
+        </EntityType>
+        <Association Name="FK_Tbl_User_TypeTbl_Seeker_Account">
+          <End Role="Tbl_User_Type" Type="Self.Tbl_User_Type" Multiplicity="1" />
+          <End Role="Tbl_Seeker_Account" Type="Self.Tbl_Seeker_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User_Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_Account">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TempIFCCIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tbl_Seeker_Account" EntityType="Self.Tbl_Seeker_Account" />
+          <EntitySet Name="Tbl_User_Type" EntityType="Self.Tbl_User_Type" />
+          <AssociationSet Name="FK_Tbl_User_TypeTbl_Seeker_Account" Association="Self.FK_Tbl_User_TypeTbl_Seeker_Account">
+            <End Role="Tbl_User_Type" EntitySet="Tbl_User_Type" />
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Employer_Account" EntityType="TempIFCCIModel.Tbl_Employer_Account" />
+          <AssociationSet Name="FK_Tbl_Employer_Account_Tbl_User_Type" Association="TempIFCCIModel.FK_Tbl_Employer_Account_Tbl_User_Type">
+            <End Role="Tbl_User_Type" EntitySet="Tbl_User_Type" />
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Seeker_Professional_Summary" EntityType="TempIFCCIModel.Tbl_Seeker_Professional_Summary" />
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_Professional_Summary" EntitySet="Tbl_Seeker_Professional_Summary" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_Seeker_EducationDetails" EntityType="TempIFCCIModel.Tbl_Seeker_EducationDetails" />
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_EducationDetails" EntitySet="Tbl_Seeker_EducationDetails" />
+          </AssociationSet>
+          <EntitySet Name="Country_Master" EntityType="TempIFCCIModel.Country_Master" />
+          <EntitySet Name="Industry_Master" EntityType="TempIFCCIModel.Industry_Master" />
+          <EntitySet Name="NumberOfEmployee_Master" EntityType="TempIFCCIModel.NumberOfEmployee_Master" />
+          <EntitySet Name="Organization_Master" EntityType="TempIFCCIModel.Organization_Master" />
+          <EntitySet Name="sysdiagrams" EntityType="TempIFCCIModel.sysdiagram" />
+          <EntitySet Name="Tbl_Employer_CVsReview" EntityType="TempIFCCIModel.Tbl_Employer_CVsReview" />
+          <EntitySet Name="Tbl_Employer_JobPost" EntityType="TempIFCCIModel.Tbl_Employer_JobPost" />
+          <EntitySet Name="Tbl_Seeker_ExperinceDetails" EntityType="TempIFCCIModel.Tbl_Seeker_ExperinceDetails" />
+          <EntitySet Name="Tbl_Seeker_MyAdditional_Information" EntityType="TempIFCCIModel.Tbl_Seeker_MyAdditional_Information" />
+          <EntitySet Name="Tbl_SkillsMaster" EntityType="TempIFCCIModel.Tbl_SkillsMaster" />
+          <EntitySet Name="Tbl_SkillsMyAppointments" EntityType="TempIFCCIModel.Tbl_SkillsMyAppointments" />
+          <AssociationSet Name="FK_Tbl_Employer_AccountTbl_Employer_CVsReview" Association="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_CVsReview">
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+            <End Role="Tbl_Employer_CVsReview" EntitySet="Tbl_Employer_CVsReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Employer_AccountTbl_Employer_JobPost" Association="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_JobPost">
+            <End Role="Tbl_Employer_Account" EntitySet="Tbl_Employer_Account" />
+            <End Role="Tbl_Employer_JobPost" EntitySet="Tbl_Employer_JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Employer_CVsReview" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Employer_CVsReview">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Employer_CVsReview" EntitySet="Tbl_Employer_CVsReview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_ExperinceDetails" EntitySet="Tbl_Seeker_ExperinceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_Seeker_MyAdditional_Information" EntitySet="Tbl_Seeker_MyAdditional_Information" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_SkillsMyAppointments" EntitySet="Tbl_SkillsMyAppointments" />
+          </AssociationSet>
+          <EntitySet Name="Tbl_SkillsSet" EntityType="TempIFCCIModel.Tbl_SkillsSet" />
+          <AssociationSet Name="FK_Tbl_Seeker_AccountTbl_SkillsSet" Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsSet">
+            <End Role="Tbl_Seeker_Account" EntitySet="Tbl_Seeker_Account" />
+            <End Role="Tbl_SkillsSet" EntitySet="Tbl_SkillsSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Tbl_Employer_Account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_type_id" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Industry" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Org_Type" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Landline_Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Company_website_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Number_of_Employees" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Is_active" Type="Boolean" Nullable="false" />
+          <Property Name="Full_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email_notification_active" Type="Boolean" />
+          <Property Name="registration_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SMS_notification_active" Type="Boolean" />
+          <Property Name="GST_Number" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Company_logo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tbl_User_Type" Relationship="TempIFCCIModel.FK_Tbl_Employer_Account_Tbl_User_Type" FromRole="Tbl_Employer_Account" ToRole="Tbl_User_Type" />
+          <NavigationProperty Name="Tbl_Employer_CVsReview" Relationship="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_CVsReview" FromRole="Tbl_Employer_Account" ToRole="Tbl_Employer_CVsReview" />
+          <NavigationProperty Name="Tbl_Employer_JobPost" Relationship="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_JobPost" FromRole="Tbl_Employer_Account" ToRole="Tbl_Employer_JobPost" />
+        </EntityType>
+        <Association Name="FK_Tbl_Employer_Account_Tbl_User_Type">
+          <End Type="TempIFCCIModel.Tbl_User_Type" Role="Tbl_User_Type" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Employer_Account" Role="Tbl_Employer_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_User_Type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_Account">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_Seeker_Professional_Summary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Professional_Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary" FromRole="Tbl_Seeker_Professional_Summary" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Seeker_Professional_Summary" Role="Tbl_Seeker_Professional_Summary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_Professional_Summary">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_Seeker_EducationDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Certificate_Degree_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Major_Subjects" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Institute_University_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Starting_Date" Type="DateTime" Precision="0" />
+          <Property Name="Completion_Date" Type="DateTime" Precision="0" />
+          <Property Name="Percentage" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CGPA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Is_active" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails" FromRole="Tbl_Seeker_EducationDetails" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Seeker_EducationDetails" Role="Tbl_Seeker_EducationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_EducationDetails">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Industry_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NumberOfEmployee_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Organization_Master">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_CVsReview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobPost_id" Type="Int32" Nullable="false" />
+          <Property Name="Employer_id" Type="Int32" Nullable="false" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="SeekerJobApplyDateTime" Type="DateTime" Precision="3" />
+          <Property Name="SeekerScheduleInterviewDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsAcceptByEmployer" Type="Boolean" />
+          <Property Name="IsRejectByEmployer" Type="Boolean" />
+          <Property Name="IsAcceptBySeeker" Type="Boolean" />
+          <Property Name="IsRejectBySeeker" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Tbl_Employer_Account" Relationship="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_CVsReview" FromRole="Tbl_Employer_CVsReview" ToRole="Tbl_Employer_Account" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Employer_CVsReview" FromRole="Tbl_Employer_CVsReview" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <EntityType Name="Tbl_Employer_JobPost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Employer_id" Type="Int32" Nullable="false" />
+          <Property Name="Experince" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Skills_set" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfOpening" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobPostDateTime" Type="DateTime" Precision="3" />
+          <Property Name="JobFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Tbl_Employer_Account" Relationship="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_JobPost" FromRole="Tbl_Employer_JobPost" ToRole="Tbl_Employer_Account" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_ExperinceDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Is_Current_Job" Type="Boolean" />
+          <Property Name="Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Job_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Job_Location_City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Job_Location_State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Job_Location_Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails" FromRole="Tbl_Seeker_ExperinceDetails" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <EntityType Name="Tbl_Seeker_MyAdditional_Information">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="Interest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Carreer_Objective" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Achievements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information" FromRole="Tbl_Seeker_MyAdditional_Information" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMaster">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SkillName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tbl_SkillsMyAppointments">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_id" Type="Int32" Nullable="false" />
+          <Property Name="EmployerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments" FromRole="Tbl_SkillsMyAppointments" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <Association Name="FK_Tbl_Employer_AccountTbl_Employer_CVsReview">
+          <End Type="TempIFCCIModel.Tbl_Employer_Account" Role="Tbl_Employer_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Employer_CVsReview" Role="Tbl_Employer_CVsReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Employer_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_CVsReview">
+              <PropertyRef Name="Employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Employer_AccountTbl_Employer_JobPost">
+          <End Type="TempIFCCIModel.Tbl_Employer_Account" Role="Tbl_Employer_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Employer_JobPost" Role="Tbl_Employer_JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Employer_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_JobPost">
+              <PropertyRef Name="Employer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Employer_CVsReview">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Employer_CVsReview" Role="Tbl_Employer_CVsReview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Employer_CVsReview">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Seeker_ExperinceDetails" Role="Tbl_Seeker_ExperinceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_ExperinceDetails">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_Seeker_MyAdditional_Information" Role="Tbl_Seeker_MyAdditional_Information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_Seeker_MyAdditional_Information">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_SkillsMyAppointments" Role="Tbl_SkillsMyAppointments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_SkillsMyAppointments">
+              <PropertyRef Name="Seeker_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tbl_SkillsSet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seeker_Id" Type="Int32" Nullable="false" />
+          <Property Name="Skill_Id" Type="Int32" Nullable="false" />
+          <Property Name="SkillName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Tbl_Seeker_Account" Relationship="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsSet" FromRole="Tbl_SkillsSet" ToRole="Tbl_Seeker_Account" />
+        </EntityType>
+        <Association Name="FK_Tbl_Seeker_AccountTbl_SkillsSet">
+          <End Type="TempIFCCIModel.Tbl_Seeker_Account" Role="Tbl_Seeker_Account" Multiplicity="1" />
+          <End Type="TempIFCCIModel.Tbl_SkillsSet" Role="Tbl_SkillsSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tbl_Seeker_Account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tbl_SkillsSet">
+              <PropertyRef Name="Seeker_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TempIFCCIModelStoreContainer" CdmEntityContainer="TempIFCCIEntities">
+          <EntitySetMapping Name="Tbl_Seeker_Account">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Seeker_Account">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_Account">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+                <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="email_notification_active" ColumnName="email_notification_active" />
+                <ScalarProperty Name="Home_Phone" ColumnName="Home_Phone" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="ResumeFileName" ColumnName="ResumeFileName" />
+                <ScalarProperty Name="Current_Address" ColumnName="Current_Address" />
+                <ScalarProperty Name="SMS_notification_active" ColumnName="SMS_notification_active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_User_Type">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_User_Type">
+              <MappingFragment StoreEntitySet="Tbl_User_Type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_type_name" ColumnName="user_type_name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Employer_Account">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Employer_Account">
+              <MappingFragment StoreEntitySet="Tbl_Employer_Account">
+                <ScalarProperty Name="Company_logo" ColumnName="Company_logo" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="GST_Number" ColumnName="GST_Number" />
+                <ScalarProperty Name="SMS_notification_active" ColumnName="SMS_notification_active" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+                <ScalarProperty Name="Email_notification_active" ColumnName="Email_notification_active" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+                <ScalarProperty Name="Company_Description" ColumnName="Company_Description" />
+                <ScalarProperty Name="Number_of_Employees" ColumnName="Number_of_Employees" />
+                <ScalarProperty Name="Company_Video" ColumnName="Company_Video" />
+                <ScalarProperty Name="Company_website_URL" ColumnName="Company_website_URL" />
+                <ScalarProperty Name="Company_Address" ColumnName="Company_Address" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="Landline_Phone" ColumnName="Landline_Phone" />
+                <ScalarProperty Name="Org_Type" ColumnName="Org_Type" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_Professional_Summary">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Seeker_Professional_Summary">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_Professional_Summary">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Professional_Summary" ColumnName="Professional_Summary" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_EducationDetails">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Seeker_EducationDetails">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_EducationDetails">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Completion_Date" ColumnName="Completion_Date" />
+                <ScalarProperty Name="Starting_Date" ColumnName="Starting_Date" />
+                <ScalarProperty Name="Institute_University_Name" ColumnName="Institute_University_Name" />
+                <ScalarProperty Name="Major_Subjects" ColumnName="Major_Subjects" />
+                <ScalarProperty Name="Certificate_Degree_Name" ColumnName="Certificate_Degree_Name" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Country_Master">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Country_Master">
+              <MappingFragment StoreEntitySet="Country_Master">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Industry_Master">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Industry_Master">
+              <MappingFragment StoreEntitySet="Industry_Master">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumberOfEmployee_Master">
+            <EntityTypeMapping TypeName="TempIFCCIModel.NumberOfEmployee_Master">
+              <MappingFragment StoreEntitySet="NumberOfEmployee_Master">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Organization_Master">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Organization_Master">
+              <MappingFragment StoreEntitySet="Organization_Master">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TempIFCCIModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Employer_CVsReview">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Employer_CVsReview">
+              <MappingFragment StoreEntitySet="Tbl_Employer_CVsReview">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsRejectBySeeker" ColumnName="IsRejectBySeeker" />
+                <ScalarProperty Name="IsAcceptBySeeker" ColumnName="IsAcceptBySeeker" />
+                <ScalarProperty Name="IsRejectByEmployer" ColumnName="IsRejectByEmployer" />
+                <ScalarProperty Name="IsAcceptByEmployer" ColumnName="IsAcceptByEmployer" />
+                <ScalarProperty Name="SeekerScheduleInterviewDateTime" ColumnName="SeekerScheduleInterviewDateTime" />
+                <ScalarProperty Name="SeekerJobApplyDateTime" ColumnName="SeekerJobApplyDateTime" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+                <ScalarProperty Name="JobPost_id" ColumnName="JobPost_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Employer_JobPost">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Employer_JobPost">
+              <MappingFragment StoreEntitySet="Tbl_Employer_JobPost">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="JobFile" ColumnName="JobFile" />
+                <ScalarProperty Name="JobPostDateTime" ColumnName="JobPostDateTime" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="NoOfOpening" ColumnName="NoOfOpening" />
+                <ScalarProperty Name="Skills_set" ColumnName="Skills_set" />
+                <ScalarProperty Name="Experince" ColumnName="Experince" />
+                <ScalarProperty Name="Employer_id" ColumnName="Employer_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_ExperinceDetails">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Seeker_ExperinceDetails">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_ExperinceDetails">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Job_Location_Country" ColumnName="Job_Location_Country" />
+                <ScalarProperty Name="Job_Location_State" ColumnName="Job_Location_State" />
+                <ScalarProperty Name="Job_Location_City" ColumnName="Job_Location_City" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+                <ScalarProperty Name="End_Date" ColumnName="End_Date" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="Is_Current_Job" ColumnName="Is_Current_Job" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_Seeker_MyAdditional_Information">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_Seeker_MyAdditional_Information">
+              <MappingFragment StoreEntitySet="Tbl_Seeker_MyAdditional_Information">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Achievements" ColumnName="Achievements" />
+                <ScalarProperty Name="Carreer_Objective" ColumnName="Carreer_Objective" />
+                <ScalarProperty Name="Interest" ColumnName="Interest" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SkillsMaster">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_SkillsMaster">
+              <MappingFragment StoreEntitySet="Tbl_SkillsMaster">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SkillsMyAppointments">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_SkillsMyAppointments">
+              <MappingFragment StoreEntitySet="Tbl_SkillsMyAppointments">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="Seeker_id" ColumnName="Seeker_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tbl_SkillsSet">
+            <EntityTypeMapping TypeName="TempIFCCIModel.Tbl_SkillsSet">
+              <MappingFragment StoreEntitySet="Tbl_SkillsSet">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Other" ColumnName="Other" />
+                <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+                <ScalarProperty Name="Skill_Id" ColumnName="Skill_Id" />
+                <ScalarProperty Name="Seeker_Id" ColumnName="Seeker_Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

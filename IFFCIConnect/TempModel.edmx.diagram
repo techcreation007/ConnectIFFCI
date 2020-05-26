@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a7c957fd5b949e68bc4db3647cb8a4f" Name="Diagram1">
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Seeker_Account" Width="1.875" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_User_Type" Width="1.625" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_User_TypeTbl_Seeker_Account" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Employer_Account" Width="2" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Employer_Account_Tbl_User_Type" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Seeker_Professional_Summary" Width="2.625" PointX="7.375" PointY="0.5" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_Professional_Summary" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Seeker_EducationDetails" Width="2.375" PointX="7.625" PointY="3" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_EducationDetails" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Country_Master" Width="2" PointX="0.75" PointY="6.375" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Industry_Master" Width="2" PointX="0.875" PointY="8.125" />
+        <EntityTypeShape EntityType="TempIFCCIModel.NumberOfEmployee_Master" Width="2.25" PointX="0.75" PointY="9.875" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Organization_Master" Width="1.875" PointX="5.75" PointY="8.75" />
+        <EntityTypeShape EntityType="TempIFCCIModel.sysdiagram" Width="1.5" PointX="6" PointY="10.5" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Employer_CVsReview" Width="2" PointX="10.25" PointY="0.5" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Employer_JobPost" Width="2" PointX="2.875" PointY="3" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Seeker_ExperinceDetails" Width="2.25" PointX="7.875" PointY="6.75" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_Seeker_MyAdditional_Information" Width="2.75" PointX="2.875" PointY="6.5" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_SkillsMaster" Width="1.5" PointX="5.875" PointY="6.75" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_SkillsMyAppointments" Width="2.25" PointX="10.25" PointY="4.25" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_CVsReview" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Employer_AccountTbl_Employer_JobPost" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Employer_CVsReview" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_ExperinceDetails" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_Seeker_MyAdditional_Information" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsMyAppointments" />
+        <EntityTypeShape EntityType="TempIFCCIModel.Tbl_SkillsSet" Width="1.5" PointX="3.25" PointY="9.375" />
+        <AssociationConnector Association="TempIFCCIModel.FK_Tbl_Seeker_AccountTbl_SkillsSet" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

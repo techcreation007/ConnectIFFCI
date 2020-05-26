@@ -25,5 +25,8 @@ namespace IFFCIConnect
         public Nullable<bool> IsAcceptBySeeker { get; set; }
         public Nullable<bool> IsRejectBySeeker { get; set; }
         public Nullable<bool> IsActive { get; set; }
+    
+        public virtual Tbl_Employer_Account Tbl_Employer_Account { get; set; }
+        public virtual Tbl_Seeker_Account Tbl_Seeker_Account { get; set; }
     }
 }

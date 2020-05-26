@@ -14,6 +14,18 @@ namespace IFFCIConnect
     
     public partial class Tbl_Seeker_Account
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tbl_Seeker_Account()
+        {
+            this.Tbl_Seeker_Professional_Summary = new HashSet<Tbl_Seeker_Professional_Summary>();
+            this.Tbl_Seeker_EducationDetails = new HashSet<Tbl_Seeker_EducationDetails>();
+            this.Tbl_Employer_CVsReview = new HashSet<Tbl_Employer_CVsReview>();
+            this.Tbl_Seeker_ExperinceDetails = new HashSet<Tbl_Seeker_ExperinceDetails>();
+            this.Tbl_Seeker_MyAdditional_Information = new HashSet<Tbl_Seeker_MyAdditional_Information>();
+            this.Tbl_SkillsMyAppointments = new HashSet<Tbl_SkillsMyAppointments>();
+            this.Tbl_SkillsSet = new HashSet<Tbl_SkillsSet>();
+        }
+    
         public int id { get; set; }
         public int user_type_id { get; set; }
         public string email { get; set; }
@@ -32,5 +44,21 @@ namespace IFFCIConnect
         public string ResumeFileName { get; set; }
         public string Current_Address { get; set; }
         public Nullable<bool> SMS_notification_active { get; set; }
+    
+        public virtual Tbl_User_Type Tbl_User_Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Seeker_Professional_Summary> Tbl_Seeker_Professional_Summary { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Seeker_EducationDetails> Tbl_Seeker_EducationDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Employer_CVsReview> Tbl_Employer_CVsReview { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Seeker_ExperinceDetails> Tbl_Seeker_ExperinceDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_Seeker_MyAdditional_Information> Tbl_Seeker_MyAdditional_Information { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_SkillsMyAppointments> Tbl_SkillsMyAppointments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tbl_SkillsSet> Tbl_SkillsSet { get; set; }
     }
 }

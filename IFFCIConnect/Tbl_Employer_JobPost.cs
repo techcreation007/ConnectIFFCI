@@ -24,5 +24,7 @@ namespace IFFCIConnect
         public string JobFile { get; set; }
         public string Status { get; set; }
         public Nullable<bool> IsActive { get; set; }
+    
+        public virtual Tbl_Employer_Account Tbl_Employer_Account { get; set; }
     }
 }
