@@ -121,15 +121,15 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control" id="ddlLocation">
-                                    <option class="hidden" value="0" selected disabled>Location*</option>
-                                    <option value="1">India</option>
-                                    <option value="2">US</option>
-                                    <option value="3">UK</option>
+                                    <option class="hidden"  selected disabled>Location*</option>
+                                    <option value="India">India</option>
+                                    <option value="US">US</option>
+                                    <option value="UK">UK</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" id="DDLNationality">
-                                    <option class="hidden" selected disabled value="0">Nationality*</option>
+                                    <option class="hidden" selected disabled >Nationality*</option>
                                     <option>India</option>
                                     <option>US</option>
                                     <option>UK</option>
@@ -521,7 +521,7 @@
         return true;
     }
     function ValidateAndSaveSeekerRegistrationControls() {
-        debugger;
+        
         var gender = $("input[name='gender']:checked").val();//$('#chkgender').val();
         if (gender === 'male')
             gender = 'M';
@@ -656,12 +656,12 @@
         }
 
 
-
+        debugger;
         var SeekerAccountsDetails = {};
         SeekerAccountsDetails.Full_Name = FullName.trim();
         SeekerAccountsDetails.contact_number = Phone.trim();
-        SeekerAccountsDetails.Nationality = $('#DDLNationality option selected').text();// "INDIA";// Nationality;
-        SeekerAccountsDetails.Location = $('#ddlLocation option selected').text();
+        SeekerAccountsDetails.Nationality = $('#DDLNationality').val();// "INDIA";// Nationality;
+        SeekerAccountsDetails.Location = $('#ddlLocation').val();
         SeekerAccountsDetails.email = email.trim();
         SeekerAccountsDetails.confirmPassword = confirmPassword.trim();
         SeekerAccountsDetails.date_of_birth = DOB;
