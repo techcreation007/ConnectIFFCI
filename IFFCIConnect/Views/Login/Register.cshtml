@@ -13,6 +13,64 @@
 <link href="~/Content/AlertScripts/Alert.css" rel="stylesheet" />
 <script src="~/Content/AlertScripts/Alert.js"></script>
 <!------ Include the above in your HEAD tag ---------->
+<style>
+    #div_top_hypers {
+        /*background-color: #eeeeee;*/
+        display: inline;
+       
+    }
+
+    #ul_top_hypers {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+        
+    }
+</style>
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+@*class="navbar navbar-default navbar-fixed-top"*@
+<div style="background-color:#276294;margin-top:-49px;">
+    <div class="container">
+        <div class="navbar-header">
+
+            @Html.ActionLink("IFCCI Job Portal", "Index", "Home", new { @class = "navbar-brand", style = "color:white" })
+            <div id="div_top_hypers" style="margin:0;">
+                <ul id="ul_top_hypers"  style="margin-left: 133px;">
+                    @*<li>@Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>*@
+                    @*<li>@Html.ActionLink("BrowseURLs", "Index", new { Controller = "BrowseURL", Area = "Common" })</li>*@
+
+                    <li>@Html.ActionLink("Search a Job", "Index", "Home", new { @class = "a_top_hypers", style = "color:white" })</li>
+                    <li>@Html.ActionLink("About Us", "Index", "Home", new { @class = "a_top_hypers", style = "color:white" })</li>
+                    <li>@Html.ActionLink("Contact Us", "Index", "Home", new { @class = "a_top_hypers", style = "color:white" })</li>
+                    @*<li>@Html.ActionLink("Administrator", "Index", new { Controller = "Home", Area = "Common" })</li>*@
+                    <li>@Html.ActionLink("LOGIN", "Login", "Login", new { @class = "a_top_hypers", style = "color:white" })</li>
+                    <li>@Html.ActionLink("JOB SEEKER", "Register", "Login", new { @class = "a_top_hypers", style = "color:white" })</li>
+                    <li>@Html.ActionLink("EMPLOYER", "Register", "Login", new { @class = "a_top_hypers", style = "color:white" })</li>
+
+                </ul>
+            </div>
+        </div>
+       
+        @*<div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", new { Controller = "Home", Area = "Common" })</li>
+                <li>@Html.ActionLink("BrowseURLs", "Index", new { Controller = "BrowseURL", Area = "Common" })</li>
+
+                <li>@Html.ActionLink("Search a Job", "Index", "Home", new { Area = "Common" })</li>
+                <li>@Html.ActionLink("About Us", "Index", new { Controller = "Home", Area = "Common" })</li>
+                <li>@Html.ActionLink("Contact Us", "Index", new { Controller = "Home", Area = "Common" })</li>
+                <li>@Html.ActionLink("Administrator", "Index", new { Controller = "Home", Area = "Common" })</li>
+                <li>@Html.ActionLink("LOGIN", "Login", "Login")</li>
+                <li>@Html.ActionLink("JOB SEEKER", "Register", "Login")</li>
+                <li>@Html.ActionLink("EMPLOYER", "Register", "Login")</li>
+                <li>@Html.ActionLink("JOB SEEKER", "Index", new { Controller = "Register", Area = "Common" })</li>
+            <li>@Html.ActionLink("EMPLOYER", "Index", new { Controller = "Home", Area = "Common" })</li>
+            </ul>
+           
+        </div>*@
+    </div>
+</div>
+
 
 <div class="container register">
     <div class="row">
@@ -21,12 +79,12 @@
             <h3>Welcome</h3>
             <p>Thank you  for signing up our job portal. Once your account is verified ,you can post the current opening at  your organization and  search a job seekers!</p>
             @*<input type="submit" name="" value="Login" />*@
-            @Html.ActionLink("LOGIN", "Login", "Login", new {@class = "btnRegister" })
+            @Html.ActionLink("LOGIN", "Login", "Login", new { @class = "btnRegister" })
             @*<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link" id="Login-tab" data-toggle="tab" href="#Login" role="tab" aria-controls="Login" aria-selected="false">Login</a>
-                </li>
-            </ul>*@
+                    <li class="nav-item">
+                        <a class="nav-link" id="Login-tab" data-toggle="tab" href="#Login" role="tab" aria-controls="Login" aria-selected="false">Login</a>
+                    </li>
+                </ul>*@
             <br />
         </div>
         <div class="col-md-9 register-right">
@@ -39,13 +97,13 @@
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Employer</a>
                 </li>
                 @*<li class="nav-item">
-                    <a class="nav-link" id="Login-tab" data-toggle="tab" href="#Login" role="tab" aria-controls="Login" aria-selected="false">Login</a>
-                </li>*@
+                        <a class="nav-link" id="Login-tab" data-toggle="tab" href="#Login" role="tab" aria-controls="Login" aria-selected="false">Login</a>
+                    </li>*@
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     @*@using (Html.BeginForm("RegisterSeekerAccount", "Login", FormMethod.Post))
-            {*@
+                        {*@
                     <h3 class="register-heading">Register as a Job SEEKER</h3>
                     <div class="row register-form">
 
@@ -93,7 +151,7 @@
                                 <input type="text" autocomplete="off" maxlength="20" class="date form-control" readonly placeholder="Select the DOB(MM/DD/YYYY) *" value="" id="txtDOB" />
                             </div>
                             <div class="form-group">
-                                
+
                                 <textarea class="form-control" maxlength="500" id="txtaddress" placeholder="Your Current Address *"></textarea>
                             </div>
                             <div class="form-group">
@@ -112,7 +170,7 @@
                                     </label>
                                 </div>
                             </div>
-                           
+
                             <div class="form-group">
                                 <input type="password" id="txtPassword" class="form-control" placeholder="Password *" value="" maxlength="20" />
                             </div>
@@ -123,7 +181,7 @@
 
                         </div>
                         <div class="form-group">
-                           
+
                             <div class="btn btn-primary btn-sm float-left">
                                 <span>Upload Resume</span>
                                 <input type="file" id="ResumeFile"><input type="button" id="fileButton" class="btn" value="Upload File" />
@@ -145,7 +203,7 @@
 
                             <div class="form-group">
 
-                                <input type="text"  maxlength="50" name="GSTNumber"  id="txtGSTNumber" class="form-control" placeholder="GST Number of the company *" value="" />
+                                <input type="text" maxlength="50" name="GSTNumber" id="txtGSTNumber" class="form-control" placeholder="GST Number of the company *" value="" />
                             </div>
                             <div class="form-group">
                                 <select class="form-control" id="DDLIndustry">
@@ -204,15 +262,15 @@
                                 <input type="password" autocomplete="off" class="form-control" id="txtCompanyconfirmPassword" placeholder="Confirm Password *" value="" maxlength="20" />
                             </div>
                             @*<div class="form-group">
-                                <input type="text" id="txtCompanywebsiteURL" class="form-control" placeholder="Company Website URL *" value="" />
-                            </div>*@
+                                    <input type="text" id="txtCompanywebsiteURL" class="form-control" placeholder="Company Website URL *" value="" />
+                                </div>*@
 
 
 
                             @*<div class="form-group">
-            <textarea class="form-control"  id="txtCompanyDescription" placeholder="Company Description *"></textarea>
+                                    <textarea class="form-control"  id="txtCompanyDescription" placeholder="Company Description *"></textarea>
 
-        </div>*@
+                                </div>*@
 
 
 
@@ -226,12 +284,14 @@
                             </div>
                             <span style="color:red; font-size:11px;">Upload Company Logo files only in *.JPEG,*.JPG or *.PNG format with maximum size of 6 MB.</span>
                         </div>
-                        <input type="submit" class="btnRegister" value="Register" id="BtnbtnRegisterEmployer" style="margin-top:2px;margin-left:508px;" />
+                        <input type="submit" class="btnRegister" value="Register" id="BtnbtnRegisterEmployer" style="        margin-top: 2px;
+        margin-left: 508px;
+" />
                     </div>
                 </div>
 
                 <!--Ligin Tab-->
-               
+
             </div>
         </div>
     </div>
@@ -640,7 +700,7 @@
     }
 
     function ValidateAndSaveEmployerRegistrationControls() {
-      
+
 
         var FullName = $('#txtEmployerFullName').val();
         var GSTNumber = $('#txtGSTNumber').val();
@@ -710,7 +770,7 @@
             $('#txtCompanyLandlinePhone').focus();
             return false;
         }
-        
+
         if (CountEmployess == 0 || CountEmployess==null) {
             alert('Please select Number Of Employee');
             $('#DDLEmployess').css('background-color', 'yellow');
@@ -737,7 +797,7 @@
             $('#txtCompanyCellPhone').focus();
             return false;
         }
-        
+
         if (EmployerCompanyPassword == '' || EmployerCompanyPassword.length < 8) {
             alert('Please enter your 8 character password');
             $('#txtCompanyconfirmPassword').css('background-color', 'yellow');
@@ -751,9 +811,9 @@
             $('#txtCompanyconfirmPassword').focus();
             return false;
         }
-        
-        
-        
+
+
+
         if (EmployerCompanyPassword != CompanyconfirmPassword) {
             alert("Passwords do not match.");
             $('#txtCompanyPassword').css('background-color', 'yellow');
@@ -845,7 +905,7 @@
     });
     //<!--Upload Company Logo-->
 
-    
+
 
     $("#fileButtonCompanyLogo").click(function () {
 
@@ -950,7 +1010,7 @@
         }
 
     });
-    
+
 
     $('#BtnSeekerRegister').click(function () {
 
