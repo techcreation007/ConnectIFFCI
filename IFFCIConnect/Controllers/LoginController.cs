@@ -12,8 +12,8 @@ namespace IFFCIConnect.Controllers
 {
     public class LoginController : Controller
     {
-       
-        IFCCIEntities dbContext = new IFCCIEntities();
+
+        TempIFCCIEntities1 dbContext = new TempIFCCIEntities1();
         // GET: Login
         public ActionResult Index()
         {
@@ -68,13 +68,13 @@ namespace IFFCIConnect.Controllers
             // return Json(files.Count + " Files Uploaded!");
         }
         [HttpPost]
-        public JsonResult RegisterSeekerAccount(Tbl_Seeker_Account SeekerAccountsDetails)
+        public JsonResult RegisterSeekerAccount(SeekerAccount SeekerAccountsDetails)
         {
 
             
             string message = string.Empty;
             SeekerAccountsDetails.registration_date = DateTime.Now;
-            var Results = dbContext.Tbl_Seeker_Account.ToList();
+            var Results = dbContext.SeekerAccounts.ToList();
             if (Results.Where(w => w.Full_Name.Contains(SeekerAccountsDetails.Full_Name)).Any())
                 message = "Full Name already exists.!";
             else if (Results.Where(w => w.email.Contains(SeekerAccountsDetails.email)).Any())
@@ -85,7 +85,7 @@ namespace IFFCIConnect.Controllers
             {
                 SeekerAccountsDetails.password= ViewModel.Cryptography.Crypt(SeekerAccountsDetails.password.ToString().Trim());
                 SeekerAccountsDetails.user_type_id = 1;
-                dbContext.Tbl_Seeker_Account.Add(SeekerAccountsDetails);
+                dbContext.SeekerAccounts.Add(SeekerAccountsDetails);
                 dbContext.SaveChanges();
                 message = "Registration successful.\\nUserId Id: " + SeekerAccountsDetails.email.ToString();
 
@@ -96,13 +96,13 @@ namespace IFFCIConnect.Controllers
         }
 
         [HttpPost]
-        public JsonResult RegisterEmployerAccount(Tbl_Employer_Account EmployerAccountsDetails)
+        public JsonResult RegisterEmployerAccount(EmployerAccount EmployerAccountsDetails)
         {
 
 
             string message = string.Empty;
             EmployerAccountsDetails.registration_date = DateTime.Now;
-            var Results = dbContext.Tbl_Employer_Account.ToList();
+            var Results = dbContext.EmployerAccounts.ToList();
             if (Results.Where(w => w.Full_Name.Contains(EmployerAccountsDetails.Full_Name)).Any())
                 message = "Full Name already exists.!";
             else if (Results.Where(w => w.Email.Contains(EmployerAccountsDetails.Email)).Any())
@@ -115,7 +115,7 @@ namespace IFFCIConnect.Controllers
             {
                 EmployerAccountsDetails.Password = ViewModel.Cryptography.Crypt(EmployerAccountsDetails.Password.ToString().Trim());
                 EmployerAccountsDetails.user_type_id = 2;
-                dbContext.Tbl_Employer_Account.Add(EmployerAccountsDetails);
+                dbContext.EmployerAccounts.Add(EmployerAccountsDetails);
                 dbContext.SaveChanges();
                 message = "Registration successful.\\nUserId Id: " + EmployerAccountsDetails.Email.ToString();
 
@@ -200,17 +200,17 @@ namespace IFFCIConnect.Controllers
             {
                 var userProfile = new UserProfile();
                 var encodepassword = Cryptography.Crypt(_password);
-                var users = (from u in dbContext.Tbl_Seeker_Account join od in dbContext.Tbl_User_Type on u.user_type_id equals od.id
+                var users = (from u in dbContext.SeekerAccounts join od in dbContext.UserTypes on u.user_type_id equals od.Id_UserType
                              where u.email.Equals(_username) && u.password.Equals(encodepassword)
                              select new {
                                  u.City, u.contact_number, u.Current_Address, u.date_of_birth, u.email,
-                                 u.email_notification_active, u.Full_Name,u.gender,u.Home_Phone,u.id,
+                                 u.email_notification_active, u.Full_Name,u.gender,u.Home_Phone,u.Id_SeekerAccount,
                                  u.Is_active, u.Location,u.Nationality, u.password, u.registration_date, u.ResumeFileName, u.SMS_notification_active,
-                                 u.user_type_id, od.UserType, od.user_type_name
+                                 u.user_type_id, od.User_Type, od.user_type_name
                              }).FirstOrDefault();
-                userProfile.id = users.id;
+                userProfile.id = users.Id_SeekerAccount;
                 userProfile.City = users.City;
-                userProfile.userType = users.UserType;
+                userProfile.userType = users.User_Type;
                 userProfile.contact_number = users.contact_number;
                 userProfile.Current_Address = users.Current_Address;
                 userProfile.date_of_birth = users.date_of_birth;
